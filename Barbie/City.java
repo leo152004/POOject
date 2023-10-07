@@ -23,7 +23,7 @@ public class City extends World
         addObject(new Barbie(), WorldWidth*2/3, 600);
         addObject(new Ken(), WorldWidth/3, 600);
         Greenfoot.delay(5);
-        addObject(new Build(), WorldWidth, 211);
+        //addObject(new Build(), WorldWidth, 211);
         for(int i = 0; i < WorldWidth; i += 48){
             addObject(new Brick(), i, 699);
         }

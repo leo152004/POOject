@@ -31,5 +31,10 @@ public class Ken extends Players
         jump("w");
         atGround();
         gravity();
+        if(Greenfoot.isKeyDown("right") && !Greenfoot.isKeyDown("d") ){
+           movingPlayer("barbie");
+        } else if(Greenfoot.isKeyDown("left") && !Greenfoot.isKeyDown("a")){
+            movingPlayer("barbie");
+        }
     }
 }

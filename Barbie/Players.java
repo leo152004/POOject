@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Players here.
@@ -102,4 +103,34 @@ public class Players extends Actor
             falling = false;
         }
     }
+    
+    public void movingPlayer(String otherPlayer){
+        if(otherPlayer == "ken"){
+            List<Ken> ListP1 = getWorld().getObjects(Ken.class);
+            if(!ListP1.isEmpty()){
+                Ken ken = ListP1.get(0);
+                int Xken = ken.getX();
+                int WorldWidth = getWorld().getWidth();
+                if(Xken >= WorldWidth - 100 && getX() > 100){
+                   move(-5);
+                } else if(getX() < WorldWidth - 100 && Xken < 100){
+                    move (5);
+                }
+            }
+        } else if(otherPlayer == "barbie"){
+                List<Barbie> ListP2 = getWorld().getObjects(Barbie.class);
+                if(!ListP2.isEmpty()){
+                    Barbie barbie = ListP2.get(0);
+                    int Xbarbie = barbie.getX();
+                    int WorldWidth = getWorld().getWidth();
+                    if(Xbarbie >= WorldWidth - 100 && getX() > 100){
+                       move(-5);
+                    } else if(getX() <= WorldWidth - 100 && Xbarbie < 100){
+                       move(5);
+                    }
+                }
+        }
+    } 
+    
+
 }
