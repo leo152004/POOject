@@ -11,6 +11,4 @@ comment4.params=
 comment4.target=void\ gravity()
 comment5.params=
 comment5.target=void\ atGround()
-comment6.params=otherPlayer
-comment6.target=void\ movingPlayer(java.lang.String)
-numComments=7
+numComments=6

@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Ken here.
@@ -12,17 +13,8 @@ public class Ken extends Players
     private GreenfootImage ken1, ken2;
     
     public Ken(){
-        int width = ken.getWidth();
-        int height = ken.getHeight();
-        ken.scale(width*3, height*3);
         ken1 = new GreenfootImage("ken1.png");
         ken2 = new GreenfootImage("ken2.png");
-        int width1 = ken1.getWidth();
-        int height1 = ken1.getHeight();
-        int width2 = ken2.getWidth();
-        int height2 = ken2.getHeight();
-        ken1.scale(width1*3, height1*3);
-        ken2.scale(width2*3, height2*3);
     }
     
     public void act()
@@ -32,9 +24,23 @@ public class Ken extends Players
         atGround();
         gravity();
         if(Greenfoot.isKeyDown("right") && !Greenfoot.isKeyDown("d") ){
-           movingPlayer("barbie");
+           movingPlayer();
         } else if(Greenfoot.isKeyDown("left") && !Greenfoot.isKeyDown("a")){
-            movingPlayer("barbie");
+            movingPlayer();
+        }
+    }
+    
+    private void movingPlayer(){
+        List<Barbie> ListP2 = getWorld().getObjects(Barbie.class);
+        if(!ListP2.isEmpty()){
+            Barbie barbie = ListP2.get(0);
+            int Xbarbie = barbie.getX();
+            int WorldWidth = getWorld().getWidth();
+            if(Xbarbie > WorldWidth - 100 && getX() > 100){
+               move(-5);
+            } else if(getX() < WorldWidth - 100 && Xbarbie < 100){
+               move(5);
+            }
         }
     }
 }

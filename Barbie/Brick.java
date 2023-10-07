@@ -17,6 +17,6 @@ public class Brick extends MovingWorld
     }
     
     public void act(){
-        movingWorld();
+        movingWorld("brick");
     }
 }

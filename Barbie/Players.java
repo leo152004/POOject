@@ -18,15 +18,14 @@ public class Players extends Actor
     public int imageFliped; //qual a imagem a ser usada
     
     public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
-        if(Greenfoot.isKeyDown(right)){
+        if(Greenfoot.isKeyDown(right) && getX() <= getWorld().getWidth()-100)
             move(5);
+        if(Greenfoot.isKeyDown(right))
             moveImage(left, right, base, walk1, walk2);
-        }
-        
-        if(Greenfoot.isKeyDown(left)){
+        if(Greenfoot.isKeyDown(left) && getX() >= 100)
             move(-5);
+        if(Greenfoot.isKeyDown(left))
             moveImage(left, right, base, walk1, walk2);
-        }
         
         if(!(Greenfoot.isKeyDown(left) || Greenfoot.isKeyDown(right))){
             setImage(base);
@@ -103,34 +102,4 @@ public class Players extends Actor
             falling = false;
         }
     }
-    
-    public void movingPlayer(String otherPlayer){
-        if(otherPlayer == "ken"){
-            List<Ken> ListP1 = getWorld().getObjects(Ken.class);
-            if(!ListP1.isEmpty()){
-                Ken ken = ListP1.get(0);
-                int Xken = ken.getX();
-                int WorldWidth = getWorld().getWidth();
-                if(Xken >= WorldWidth - 100 && getX() > 100){
-                   move(-5);
-                } else if(getX() < WorldWidth - 100 && Xken < 100){
-                    move (5);
-                }
-            }
-        } else if(otherPlayer == "barbie"){
-                List<Barbie> ListP2 = getWorld().getObjects(Barbie.class);
-                if(!ListP2.isEmpty()){
-                    Barbie barbie = ListP2.get(0);
-                    int Xbarbie = barbie.getX();
-                    int WorldWidth = getWorld().getWidth();
-                    if(Xbarbie >= WorldWidth - 100 && getX() > 100){
-                       move(-5);
-                    } else if(getX() <= WorldWidth - 100 && Xbarbie < 100){
-                       move(5);
-                    }
-                }
-        }
-    } 
-    
-
 }

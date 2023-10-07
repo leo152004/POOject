@@ -9,39 +9,49 @@ import java.util.*;
  */
 public class Build extends MovingWorld
 {
-    GreenfootImage build1 = getImage();
-    public GreenfootImage build2, build3;
+    GreenfootImage Build1 = getImage();
+    public GreenfootImage Build2, Build3, halfBuild1, halfhalfBuild1, halfBuild2, halfhalfBuild2, halfBuild3, halfhalfBuild3;
+    private boolean construido;
     
     public Build() {
-        build2 = new GreenfootImage("building2.png");
-        build3 = new GreenfootImage("building3.png");
-        int Bwidth1 = build1.getWidth();
-        int Bheight1 = build1.getHeight();
-        int Bwidth2 = build2.getWidth();
-        int Bheight2 = build2.getHeight();
-        int Bwidth3 = build3.getWidth();
-        int Bheight3 = build3.getHeight();
-        build1.scale(Bwidth1*10, Bheight1*10);
-        build2.scale(Bwidth2*10, Bheight2*10);
-        build3.scale(Bwidth3*10, Bheight3*10);
-        randomBuilding();
+        Build2 = new GreenfootImage("building2.png");
+        Build3 = new GreenfootImage("building3.png");
     }
     
     public void act()
     {
-        movingWorld();
+        if(!construido){
+            randomBuilding();
+            construido = true;
+        }
+        movingWorld("building");
+        removed();
+        if(getX() == getWorld().getWidth()-200)
+            newBuilding();
     }
     
     private void randomBuilding(){
         int building = Greenfoot.getRandomNumber(100);
         if (building < 33){
-            setImage(build2);
+            setImage(Build2);
             setLocation(getX(), 252);
         } else if (building > 65){
-            setImage(build3);
-            setLocation(getX(), 234);
+            setImage(Build3);
+            setLocation(getX(), 260);
         } else{
             setLocation(getX(), 332);
+        }
+    }
+    
+    private void removed(){
+        if(getX() == 0){
+            //getWorld().removeObject(this);
+        }
+    }
+    
+    private void newBuilding(){
+        if(Greenfoot.getRandomNumber(100) < 2){
+            getWorld().addObject(new Build(), getWorld().getWidth(), 332);
         }
     }
 }

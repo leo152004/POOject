@@ -8,32 +8,73 @@ import java.util.*;
  */
 public class MovingWorld extends Actor
 {
-
-    public void movingWorld(){
-        if( Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")){
-            List<Barbie> ListB = getWorld().getObjects(Barbie.class);
-            List<Ken> ListK = getWorld().getObjects(Ken.class);
-            if(!(ListB.isEmpty() && ListK.isEmpty())){
-                Barbie barbie = ListB.get(0);
-                Ken ken = ListK.get(0);
-                int Xbarbie = barbie.getX();
-                int WorldWidth = getWorld().getWidth();
-                if((Xbarbie >= WorldWidth - 100 || ken.getX() >= WorldWidth - 100) && (Xbarbie > 100 && ken.getX() > 100)){
-                   move(-5);
+    private boolean moving;
+    
+    public void movingWorld(String whatsThis){
+        List<Barbie> ListB = getWorld().getObjects(Barbie.class);
+        List<Ken> ListK = getWorld().getObjects(Ken.class);
+        if(!(ListB.isEmpty() && ListK.isEmpty())){
+            Barbie barbie = ListB.get(0);
+            Ken ken = ListK.get(0);
+            int Xbarbie = barbie.getX();
+            int WorldWidth = getWorld().getWidth();
+            if(Greenfoot.isKeyDown("right")){
+                if((Xbarbie > WorldWidth - 100 &&  ken.getX() > 100) && !moving){
+                    if(whatsThis == "background"){
+                        move(-1);
+                        moving = true;
+                    } else{
+                        move(-5);
+                        moving = true;
+                    }
+                    if(whatsThis == "brick")
+                       if(getX() == 0)
+                           setLocation(getWorld().getWidth(), getY());
+                }
+            } 
+            if(Greenfoot.isKeyDown("d")){
+                if(ken.getX() > WorldWidth - 100 && Xbarbie > 100 && !moving){
+                   if(whatsThis == "background"){
+                        move(-1);
+                        moving = true;
+                    } else{
+                        move(-5);
+                        moving = true;
+                    }
+                   if(whatsThis == "brick")
+                       if(getX() == 0)
+                           setLocation(getWorld().getWidth(), getY());
                 }
             }
-        } else if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left")){
-            List<Barbie> ListB = getWorld().getObjects(Barbie.class);
-            List<Ken> ListK = getWorld().getObjects(Ken.class);
-            if(!(ListB.isEmpty() && ListK.isEmpty())){
-                Barbie barbie = ListB.get(0);
-                Ken ken = ListK.get(0);
-                int Xbarbie = barbie.getX();
-                int WorldWidth = getWorld().getWidth();
-                if((Xbarbie <= WorldWidth - 100 || ken.getX() <= WorldWidth - 100) && (Xbarbie < 100 && ken.getX() < 100)){
-                   move(5);
+            if(Greenfoot.isKeyDown("left")){
+                if(ken.getX() < WorldWidth - 100 && Xbarbie < 100 && !moving){
+                   if(whatsThis == "background"){
+                        move(1);
+                        moving = true;
+                    } else{
+                        move(5);
+                        moving = true;
+                    }
+                   if(whatsThis == "brick")
+                       if(getX() == getWorld().getWidth()-1)
+                           setLocation(0, getY());
                 }
             }
+            if(Greenfoot.isKeyDown("a")){
+                if(Xbarbie < WorldWidth - 100 && ken.getX() < 100 && !moving){
+                   if(whatsThis == "background"){
+                        move(1);
+                        moving = true;
+                    } else{
+                        move(5);
+                        moving = true;
+                    }
+                   if(whatsThis == "brick")
+                       if(getX() == getWorld().getWidth()-1)
+                           setLocation(0, getY());
+                }
+            }
+            moving = false; 
         }
     }
 }
