@@ -87,7 +87,7 @@ public class Players extends Actor
     }
     
     public void gravity(){
-        if(!isTouching(GroundLine.class)){
+        if(!isTouching(Brick.class)){
             if(!jumping){
                 setLocation(getX(), getY()+ gravitySpeed);
                 gravitySpeed++;
@@ -97,9 +97,16 @@ public class Players extends Actor
     }
     
     public void atGround(){
-        if(isTouching(GroundLine.class)){
+        if(isTouching(Brick.class)){
             gravitySpeed = 0;
             falling = false;
+        }
+    }
+    
+    public void addPoints(){
+        if(isTouching(Coin.class)){
+            City Level1 = (City)getWorld();
+            Level1.addPoints();
         }
     }
 }

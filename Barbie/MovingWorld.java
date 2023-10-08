@@ -27,9 +27,15 @@ public class MovingWorld extends Actor
                         move(-5);
                         moving = true;
                     }
-                    if(whatsThis == "brick")
-                       if(getX() == 0)
+                    if(getX() == 0){
+                       if(whatsThis == "brick" || getX() <= 0){
                            setLocation(getWorld().getWidth(), getY());
+                        }
+                        if(whatsThis == "building"){
+                            getWorld().addObject(new Build(), getWorld().getWidth()+250, 332);
+                            getWorld().addObject(new Coin(), getWorld().getWidth()+20, Greenfoot.getRandomNumber(50)+600);
+                        }
+                    }
                 }
             } 
             if(Greenfoot.isKeyDown("d")){
@@ -41,9 +47,15 @@ public class MovingWorld extends Actor
                         move(-5);
                         moving = true;
                     }
-                   if(whatsThis == "brick")
-                       if(getX() == 0)
+                   if(getX() == 0){
+                       if(whatsThis == "brick" || getX() <= 0){
                            setLocation(getWorld().getWidth(), getY());
+                        }
+                       if(whatsThis == "building"){
+                            getWorld().addObject(new Build(), getWorld().getWidth()+250, 332);
+                            getWorld().addObject(new Coin(), getWorld().getWidth()+20, Greenfoot.getRandomNumber(50)+600);
+                        }
+                    }
                 }
             }
             if(Greenfoot.isKeyDown("left")){
@@ -55,9 +67,10 @@ public class MovingWorld extends Actor
                         move(5);
                         moving = true;
                     }
-                   if(whatsThis == "brick")
-                       if(getX() == getWorld().getWidth()-1)
-                           setLocation(0, getY());
+                    if(getX() == WorldWidth-1){
+                       if(whatsThis == "brick" || getX() >= WorldWidth)
+                           setLocation(getWorld().getWidth(), getY());
+                    }
                 }
             }
             if(Greenfoot.isKeyDown("a")){
@@ -69,9 +82,10 @@ public class MovingWorld extends Actor
                         move(5);
                         moving = true;
                     }
-                   if(whatsThis == "brick")
-                       if(getX() == getWorld().getWidth()-1)
-                           setLocation(0, getY());
+                   if(getX() == WorldWidth-1){
+                       if(whatsThis == "brick" || getX() >= WorldWidth)
+                           setLocation(getWorld().getWidth(), getY());
+                    }
                 }
             }
             moving = false; 

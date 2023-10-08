@@ -10,6 +10,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class City extends World
 {
     public int WorldWidth;
+    public int pontos; //pontos ganhos pelo jogador
+    
     public City()
     {    
         super(1000, 800, 1, false); 
@@ -20,16 +22,23 @@ public class City extends World
         
     public void worldBuilder(){
         addObject(new FundoMovel(), WorldWidth, getHeight()/2);
-        addObject(new GroundLine(), WorldWidth/2, 650);
+        //addObject(new GroundLine(), WorldWidth/2, 650);
         addObject(new Barbie(), WorldWidth*2/3, 600);
         addObject(new Ken(), WorldWidth/3, 600);
-        addObject(new Build(), WorldWidth, 332);
+        addObject(new Build(), WorldWidth/3-100, 223);
+        addObject(new Build(), WorldWidth*2/3+50, 223);
         for(int i = 0; i < WorldWidth; i += 48){
             addObject(new Brick(), i, 699);
         }
         for(int i = 0; i < WorldWidth; i += 48){
             addObject(new Brick(), i, getHeight()-10);
         }
+        
         addObject(new FundoMovel(), WorldWidth/2, getHeight()/2);
+    }
+    
+    public void addPoints(){
+        pontos += 20;
+        showText("Pontos: " + pontos, getWidth(), 50);
     }
 }

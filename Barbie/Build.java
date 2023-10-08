@@ -25,12 +25,13 @@ public class Build extends MovingWorld
             construido = true;
         }
         movingWorld("building");
-        removed();
-        if(getX() == getWorld().getWidth()-200)
-            newBuilding();
+        //getWorld().addObject(new Brick(), getX()+100, 481);
+        if(isTouching(Build.class)){
+            removeTouching(Build.class);
+        }
     }
     
-    private void randomBuilding(){
+    public void randomBuilding(){
         int building = Greenfoot.getRandomNumber(100);
         if (building < 33){
             setImage(Build2);
@@ -40,18 +41,6 @@ public class Build extends MovingWorld
             setLocation(getX(), 260);
         } else{
             setLocation(getX(), 332);
-        }
-    }
-    
-    private void removed(){
-        if(getX() == 0){
-            //getWorld().removeObject(this);
-        }
-    }
-    
-    private void newBuilding(){
-        if(Greenfoot.getRandomNumber(100) < 2){
-            getWorld().addObject(new Build(), getWorld().getWidth(), 332);
         }
     }
 }
