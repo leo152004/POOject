@@ -24,6 +24,7 @@ public class Ken extends Players
         atGround();
         gravity();
         addPoints();
+        playerGround();
         if(Greenfoot.isKeyDown("right") && !Greenfoot.isKeyDown("d") ){
            movingPlayer();
         } else if(Greenfoot.isKeyDown("left") && !Greenfoot.isKeyDown("a")){
@@ -33,10 +34,10 @@ public class Ken extends Players
     
     private void movingPlayer(){
         List<Barbie> ListP2 = getWorld().getObjects(Barbie.class);
+        int WorldWidth = getWorld().getWidth();
         if(!ListP2.isEmpty()){
             Barbie barbie = ListP2.get(0);
             int Xbarbie = barbie.getX();
-            int WorldWidth = getWorld().getWidth();
             if(Xbarbie > WorldWidth - 100 && getX() > 100){
                move(-5);
             } else if(getX() < WorldWidth - 100 && Xbarbie < 100){

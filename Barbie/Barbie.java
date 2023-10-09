@@ -11,6 +11,8 @@ public class Barbie extends Players
 {
     GreenfootImage barbie = getImage();
     private GreenfootImage barbie1, barbie2, gif;
+    private int passos;
+    private boolean brickAdded;
     
     public Barbie(){
         barbie1 = new GreenfootImage("barbie1.png");
@@ -24,6 +26,7 @@ public class Barbie extends Players
         atGround();
         gravity();
         addPoints();
+        playerGround();
         if(Greenfoot.isKeyDown("d") && !Greenfoot.isKeyDown("right") ){
            movingPlayer();
         } else if(Greenfoot.isKeyDown("a") && !Greenfoot.isKeyDown("left")){
@@ -42,8 +45,6 @@ public class Barbie extends Players
             } else if(getX() < WorldWidth - 100 && Xken < 100){
                 move (5);
             }
-        }
-        if(getX() == WorldWidth-100){
         }
     }
 }

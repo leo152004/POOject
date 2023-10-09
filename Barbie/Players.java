@@ -16,14 +16,19 @@ public class Players extends Actor
     public int gravitySpeed; //a velocidade da gravidade quando cai
     public int flipCounter; // contador para mudar a imagem
     public int imageFliped; //qual a imagem a ser usada
+    private int passos;
     
     public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
-        if(Greenfoot.isKeyDown(right) && getX() <= getWorld().getWidth()-100)
+        if(Greenfoot.isKeyDown(right) && getX() <= getWorld().getWidth()-100){
             move(5);
+            passos+=5;
+        }
         if(Greenfoot.isKeyDown(right))
             moveImage(left, right, base, walk1, walk2);
-        if(Greenfoot.isKeyDown(left) && getX() >= 100)
+        if(Greenfoot.isKeyDown(left) && getX() >= 100){
             move(-5);
+            passos-=5;
+        }
         if(Greenfoot.isKeyDown(left))
             moveImage(left, right, base, walk1, walk2);
         
@@ -108,6 +113,16 @@ public class Players extends Actor
             City Level1 = (City)getWorld();
             removeTouching(Coin.class);
             Level1.addPoints();
+        }
+    }
+    
+    public void playerGround(){
+        int WorldWidth = getWorld().getWidth();
+        if(getX() == WorldWidth-100 && passos >= 48){
+            getWorld().addObject(new Brick(), WorldWidth, 747);
+        }
+        if(getX() == 100 && passos >= -48){
+            getWorld().addObject(new Brick(), 0, 747);
         }
     }
 }

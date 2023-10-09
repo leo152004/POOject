@@ -2,7 +2,5 @@
 comment0.target=Brick
 comment0.text=\n\ Write\ a\ description\ of\ class\ Brick\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=Brick()
-comment2.params=
-comment2.target=void\ act()
-numComments=3
+comment1.target=void\ act()
+numComments=2

@@ -10,12 +10,6 @@ import java.util.*;
 public class Brick extends MovingWorld
 {
     GreenfootImage brick = getImage();    
-    public Brick(){
-        int width = brick.getWidth();
-        int height = brick.getHeight();
-        brick.scale(width*6, height*6);
-    }
-    
     public void act(){
         movingWorld("brick");
     }

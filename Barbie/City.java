@@ -14,7 +14,7 @@ public class City extends World
     
     public City()
     {    
-        super(1000, 800, 1, false); 
+        super(1200, 800, 1, false); 
         WorldWidth = getWidth();
         worldBuilder();
         setPaintOrder(Barbie.class, Ken.class, Coin.class, Brick.class, Build.class, FundoMovel.class);
