@@ -29,7 +29,7 @@ public class MovingWorld extends Actor
                     }
                     if(getX() == 0){
                        if(whatsThis == "brick" || getX() <= 0){
-                           setLocation(getWorld().getWidth(), getY());
+                           getWorld().addObject(new Brick(), getWorld().getWidth(), getY());
                         }
                         if(whatsThis == "building"){
                             getWorld().addObject(new Build(), getWorld().getWidth()+250, 332);
@@ -49,7 +49,7 @@ public class MovingWorld extends Actor
                     }
                    if(getX() == 0){
                        if(whatsThis == "brick" || getX() <= 0){
-                           setLocation(getWorld().getWidth(), getY());
+                           getWorld().addObject(new Brick(), getWorld().getWidth(), getY());
                         }
                        if(whatsThis == "building"){
                             getWorld().addObject(new Build(), getWorld().getWidth()+250, 332);
@@ -67,10 +67,6 @@ public class MovingWorld extends Actor
                         move(5);
                         moving = true;
                     }
-                    if(getX() == WorldWidth-1){
-                       if(whatsThis == "brick" || getX() >= WorldWidth)
-                           setLocation(getWorld().getWidth(), getY());
-                    }
                 }
             }
             if(Greenfoot.isKeyDown("a")){
@@ -82,13 +78,13 @@ public class MovingWorld extends Actor
                         move(5);
                         moving = true;
                     }
-                   if(getX() == WorldWidth-1){
-                       if(whatsThis == "brick" || getX() >= WorldWidth)
-                           setLocation(getWorld().getWidth(), getY());
-                    }
                 }
             }
             moving = false; 
         }
+    }
+    
+    private void rightBarbie(){
+        
     }
 }

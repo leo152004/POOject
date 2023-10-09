@@ -32,16 +32,18 @@ public class Barbie extends Players
     }
     
     private void movingPlayer(){
+        int WorldWidth = getWorld().getWidth();
         List<Ken> ListP1 = getWorld().getObjects(Ken.class);
         if(!ListP1.isEmpty()){
             Ken ken = ListP1.get(0);
             int Xken = ken.getX();
-            int WorldWidth = getWorld().getWidth();
             if(Xken > WorldWidth - 100 && getX() > 100){
                 move(-5);
             } else if(getX() < WorldWidth - 100 && Xken < 100){
                 move (5);
             }
+        }
+        if(getX() == WorldWidth-100){
         }
     }
 }
