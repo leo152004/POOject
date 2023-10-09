@@ -106,6 +106,7 @@ public class Players extends Actor
     public void addPoints(){
         if(isTouching(Coin.class)){
             City Level1 = (City)getWorld();
+            removeTouching(Coin.class);
             Level1.addPoints();
         }
     }

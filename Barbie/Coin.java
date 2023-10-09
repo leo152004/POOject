@@ -8,4 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Coin extends MovingWorld
 {
+    public void act() {
+        movingWorld("coin");
+    }
 }

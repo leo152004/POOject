@@ -23,6 +23,7 @@ public class Barbie extends Players
         jump("up");
         atGround();
         gravity();
+        addPoints();
         if(Greenfoot.isKeyDown("d") && !Greenfoot.isKeyDown("right") ){
            movingPlayer();
         } else if(Greenfoot.isKeyDown("a") && !Greenfoot.isKeyDown("left")){

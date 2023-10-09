@@ -23,6 +23,7 @@ public class Ken extends Players
         jump("w");
         atGround();
         gravity();
+        addPoints();
         if(Greenfoot.isKeyDown("right") && !Greenfoot.isKeyDown("d") ){
            movingPlayer();
         } else if(Greenfoot.isKeyDown("left") && !Greenfoot.isKeyDown("a")){
