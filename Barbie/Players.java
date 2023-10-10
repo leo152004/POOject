@@ -118,11 +118,13 @@ public class Players extends Actor
     
     public void playerGround(){
         int WorldWidth = getWorld().getWidth();
-        if(getX() == WorldWidth-100 && passos >= 48){
-            getWorld().addObject(new Brick(), WorldWidth, 747);
-        }
-        if(getX() == 100 && passos >= -48){
-            getWorld().addObject(new Brick(), 0, 747);
+        if(isTouching(Brick.class)){
+            if(getObjectsAtOffset(100, 50, Brick.class).isEmpty()){
+               getWorld().addObject(new Brick(), getX()+100, 747); 
+            }
+            if(getObjectsAtOffset(-100, 50, Brick.class).isEmpty()){
+               getWorld().addObject(new Brick(), getX()-100, 747); 
+            }
         }
     }
 }
