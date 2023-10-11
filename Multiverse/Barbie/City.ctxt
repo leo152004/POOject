@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=City
+comment0.text=\n\ Write\ a\ description\ of\ class\ City\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n\ https\://wallpaperaccess.com/city-pixel-art\n
+comment1.params=
+comment1.target=City()
+comment2.params=
+comment2.target=void\ worldBuilder()
+comment3.params=
+comment3.target=void\ addPoints()
+numComments=4
