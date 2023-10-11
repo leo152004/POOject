@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Players
+comment0.text=\n\ Write\ a\ description\ of\ class\ Players\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=right\ left\ base\ walk1\ walk2\ passos
+comment1.target=void\ movement(java.lang.String,\ java.lang.String,\ greenfoot.GreenfootImage,\ greenfoot.GreenfootImage,\ greenfoot.GreenfootImage,\ int)
+comment2.params=left\ right\ base\ walk1\ walk2
+comment2.target=void\ moveImage(java.lang.String,\ java.lang.String,\ greenfoot.GreenfootImage,\ greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
+comment3.params=up
+comment3.target=void\ jump(java.lang.String)
+comment4.params=
+comment4.target=void\ gravity()
+comment5.params=
+comment5.target=void\ atGround()
+comment6.params=
+comment6.target=void\ addPoints()
+numComments=7

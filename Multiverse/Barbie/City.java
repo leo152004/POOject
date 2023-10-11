@@ -24,10 +24,10 @@ public class City extends World
         addObject(new FundoMovel(), WorldWidth, getHeight()/2);
         addObject(new Barbie(), WorldWidth*2/3, 600);
         addObject(new Ken(), WorldWidth/3, 600);
-        addObject(new Build(), WorldWidth/3-100, 223);
-        addObject(new Build(), WorldWidth*2/3+50, 223);
-        addObject(new Build(), WorldWidth, 223);
-        for(int i = 0; i < 10000; i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
+        for(int i = 500; i <= 5500; i += 1000){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
+            addObject(new Build(), i, 223);
+        }
+        for(int i = 0; i < 6000; i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
             addObject(new Brick(), i, 747);
         }
         

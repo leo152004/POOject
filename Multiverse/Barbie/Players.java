@@ -16,22 +16,22 @@ public class Players extends Actor
     public int gravitySpeed; //a velocidade da gravidade quando cai
     public int flipCounter; // contador para mudar a imagem
     public int imageFliped; //qual a imagem a ser usada
-    private int passos;
-    private boolean addBrick;
     
-    public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
-        if(Greenfoot.isKeyDown(right) && getX() <= getWorld().getWidth()-100){
-            move(5);
-            passos+=5;
+    public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, int passos){
+        if(passos <= 5900 && passos > 100){
+            if(Greenfoot.isKeyDown(right) && getX() <= getWorld().getWidth()-100){
+                move(5);
+                passos+=5;
+            }
+            if(Greenfoot.isKeyDown(right))
+                moveImage(left, right, base, walk1, walk2);
+            if(Greenfoot.isKeyDown(left) && getX() >= 100){
+                move(-5);
+                passos-=5;
+            }
+            if(Greenfoot.isKeyDown(left))
+                moveImage(left, right, base, walk1, walk2);
         }
-        if(Greenfoot.isKeyDown(right))
-            moveImage(left, right, base, walk1, walk2);
-        if(Greenfoot.isKeyDown(left) && getX() >= 100){
-            move(-5);
-            passos-=5;
-        }
-        if(Greenfoot.isKeyDown(left))
-            moveImage(left, right, base, walk1, walk2);
         
         if(!(Greenfoot.isKeyDown(left) || Greenfoot.isKeyDown(right))){
             setImage(base);
@@ -115,27 +115,5 @@ public class Players extends Actor
             removeTouching(Coin.class);
             Level1.addPoints();
         }
-    }
-    
-    public void playerGround(){
-        /*int WorldWidth = getWorld().getWidth();
-        int Max = getX();
-        int Min = getX();
-        List<Brick> BrickManager = getObjectsInRange(170, Brick.class);
-        if(isTouching(Brick.class)){
-            if(!BrickManager.isEmpty()){
-                for(int i = 0; i < BrickManager.size(); i++){
-                    int a = BrickManager.get(i).getX();
-                    if (a > Max)
-                        Max = a;
-                    if (a < Min)
-                        Min = a;
-                }
-                if (Max <= getX()+120)
-                    getWorld().addObject(new Brick(), getX()+150, 747);
-                if (Min >= getX()-120)
-                    getWorld().addObject(new Brick(), getX()-150, 747); 
-            }
-        }*/
     }
 }
