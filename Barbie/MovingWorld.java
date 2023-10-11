@@ -17,9 +17,19 @@ public class MovingWorld extends Actor
             Barbie barbie = ListB.get(0);
             Ken ken = ListK.get(0);
             int Xbarbie = barbie.getX();
+            int Xken = ken.getX();
             int WorldWidth = getWorld().getWidth();
-            if(Greenfoot.isKeyDown("right")){
-                if((Xbarbie > WorldWidth - 100 &&  ken.getX() > 100) && !moving){
+            rightBarbie(Xbarbie, Xken, WorldWidth, whatsThis);
+            leftBarbie(Xbarbie, Xken, WorldWidth, whatsThis);
+            rightKen(Xbarbie, Xken, WorldWidth, whatsThis);
+            leftKen(Xbarbie, Xken, WorldWidth, whatsThis);
+            moving = false; 
+        }
+    }
+    
+    private void rightBarbie(int Xbarbie, int Xken, int WorldWidth, String whatsThis){
+        if(Greenfoot.isKeyDown("right")){
+                if((Xbarbie > WorldWidth - 100 &&  Xken > 100) && !moving){
                     if(whatsThis == "background"){
                         move(-1);
                         moving = true;
@@ -33,8 +43,25 @@ public class MovingWorld extends Actor
                         }
                 }
             } 
-            if(Greenfoot.isKeyDown("d")){
-                if(ken.getX() > WorldWidth - 100 && Xbarbie > 100 && !moving){
+    }
+    
+    private void leftBarbie(int Xbarbie, int Xken, int WorldWidth, String whatsThis){
+        if(Greenfoot.isKeyDown("left")){
+                if(Xken < WorldWidth - 100 && Xbarbie < 100 && !moving){
+                   if(whatsThis == "background"){
+                        move(1);
+                        moving = true;
+                    } else{
+                        move(5);
+                        moving = true;
+                    }
+                }
+            }
+    }
+    
+    private void rightKen(int Xbarbie, int Xken, int WorldWidth, String whatsThis){
+        if(Greenfoot.isKeyDown("d")){
+                if(Xken > WorldWidth - 100 && Xbarbie > 100 && !moving){
                    if(whatsThis == "background"){
                         move(-1);
                         moving = true;
@@ -48,33 +75,19 @@ public class MovingWorld extends Actor
                         }
                 }
             }
-            if(Greenfoot.isKeyDown("left")){
-                if(ken.getX() < WorldWidth - 100 && Xbarbie < 100 && !moving){
-                   if(whatsThis == "background"){
-                        move(1);
-                        moving = true;
-                    } else{
-                        move(5);
-                        moving = true;
-                    }
-                }
-            }
-            if(Greenfoot.isKeyDown("a")){
-                if(Xbarbie < WorldWidth - 100 && ken.getX() < 100 && !moving){
-                   if(whatsThis == "background"){
-                        move(1);
-                        moving = true;
-                    } else{
-                        move(5);
-                        moving = true;
-                    }
-                }
-            }
-            moving = false; 
-        }
     }
     
-    private void rightBarbie(){
-        
+    private void leftKen(int Xbarbie, int Xken, int WorldWidth, String whatsThis){
+        if(Greenfoot.isKeyDown("a")){
+                if(Xbarbie < WorldWidth - 100 && Xken < 100 && !moving){
+                   if(whatsThis == "background"){
+                        move(1);
+                        moving = true;
+                    } else{
+                        move(5);
+                        moving = true;
+                    }
+                }
+            }
     }
 }

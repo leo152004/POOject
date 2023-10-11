@@ -17,6 +17,7 @@ public class Players extends Actor
     public int flipCounter; // contador para mudar a imagem
     public int imageFliped; //qual a imagem a ser usada
     private int passos;
+    private boolean addBrick;
     
     public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(Greenfoot.isKeyDown(right) && getX() <= getWorld().getWidth()-100){
@@ -118,12 +119,22 @@ public class Players extends Actor
     
     public void playerGround(){
         int WorldWidth = getWorld().getWidth();
+        int Max = getX();
+        int Min = getX();
+        List<Brick> BrickManager = getObjectsInRange(170, Brick.class);
         if(isTouching(Brick.class)){
-            if(getObjectsAtOffset(100, 50, Brick.class).isEmpty()){
-               getWorld().addObject(new Brick(), getX()+100, 747); 
-            }
-            if(getObjectsAtOffset(-100, 50, Brick.class).isEmpty()){
-               getWorld().addObject(new Brick(), getX()-100, 747); 
+            if(!BrickManager.isEmpty()){
+                for(int i = 0; i < BrickManager.size(); i++){
+                    int a = BrickManager.get(i).getX();
+                    if (a > Max)
+                        Max = a;
+                    if (a < Min)
+                        Min = a;
+                }
+                if (Max <= getX()+120)
+                    getWorld().addObject(new Brick(), getX()+150, 747);
+                if (Min >= getX()-120)
+                    getWorld().addObject(new Brick(), getX()-150, 747); 
             }
         }
     }
