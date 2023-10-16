@@ -17,16 +17,16 @@ public class Players extends Actor
     public int flipCounter; // contador para mudar a imagem
     public int imageFliped; //qual a imagem a ser usada
     
-    public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, int passos){
+    public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, int passos, int speed){
         if(passos <= 5900 && passos > 100){
             if(Greenfoot.isKeyDown(right) && getX() <= getWorld().getWidth()-100){
-                move(5);
+                move(speed);
                 passos+=5;
             }
             if(Greenfoot.isKeyDown(right))
                 moveImage(left, right, base, walk1, walk2);
             if(Greenfoot.isKeyDown(left) && getX() >= 100){
-                move(-5);
+                move(-speed);
                 passos-=5;
             }
             if(Greenfoot.isKeyDown(left))
@@ -115,5 +115,23 @@ public class Players extends Actor
             removeTouching(Coin.class);
             Level1.addPoints();
         }
+    }
+    
+    public void enterLevel(){
+            if(getX() >= 450 && getX() <= 550)
+                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
+                    Greenfoot.setWorld(new Level0());
+            if(getX() >= 1450 && getX() <= 1550)     
+                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
+                    Greenfoot.setWorld(new Level1());
+            if(getX() >= 2450 && getX() <= 2550)
+                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
+                    Greenfoot.setWorld(new Level2());
+            if(getX() >= 3450 && getX() <= 3550)
+                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
+                    Greenfoot.setWorld(new Level3());
+            if(getX() >= 4450 && getX() <= 4550)
+                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
+                    Greenfoot.setWorld(new Level4());
     }
 }
