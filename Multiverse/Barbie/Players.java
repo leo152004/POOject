@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.*;
 
 /**
  * Write a description of class Players here.
@@ -16,6 +15,7 @@ public class Players extends Actor
     public int gravitySpeed; //a velocidade da gravidade quando cai
     public int flipCounter; // contador para mudar a imagem
     public int imageFliped; //qual a imagem a ser usada
+    private boolean atGround;
     
     public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, int passos, int speed){
         if(passos <= 5900 && passos > 100){
@@ -93,17 +93,16 @@ public class Players extends Actor
     }
     
     public void gravity(){
-        if(!isTouching(Brick.class)){
+        if(!isTouching(Brick.class) || !isTouching(Stone.class))
             if(!jumping){
                 setLocation(getX(), getY()+ gravitySpeed);
                 gravitySpeed++;
                 falling = true;
             }
-        }
     }
     
     public void atGround(){
-        if(isTouching(Brick.class)){
+        if(isTouching(Brick.class) || isTouching(Stone.class)){
             gravitySpeed = 0;
             falling = false;
         }
@@ -118,20 +117,22 @@ public class Players extends Actor
     }
     
     public void enterLevel(){
-            if(getX() >= 450 && getX() <= 550)
+        if(isTouching(Build.class)){
+            if(Build.place >= 450 && Build.place <= 550)
                 if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
                     Greenfoot.setWorld(new Level0());
-            if(getX() >= 1450 && getX() <= 1550)     
+            if(Build.place >= 1450 && Build.place <= 1550)     
                 if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
                     Greenfoot.setWorld(new Level1());
-            if(getX() >= 2450 && getX() <= 2550)
+            if(Build.place >= 2450 && Build.place <= 2550)
                 if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
                     Greenfoot.setWorld(new Level2());
-            if(getX() >= 3450 && getX() <= 3550)
+            if(Build.place >= 3450 && Build.place <= 3550)
                 if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
                     Greenfoot.setWorld(new Level3());
-            if(getX() >= 4450 && getX() <= 4550)
+            if(Build.place >= 4450 && Build.place <= 4550)
                 if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
                     Greenfoot.setWorld(new Level4());
+        }
     }
 }

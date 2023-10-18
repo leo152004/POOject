@@ -10,6 +10,7 @@ public class Level0 extends City
 {
     public Level0()
     {
+        worldDestroyer();
         for(int i = 0; i < getWidth(); i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
             addObject(new Stone(), i, 747);
         }

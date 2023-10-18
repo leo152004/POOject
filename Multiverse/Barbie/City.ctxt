@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=void\ worldBuilder()
 comment3.params=
 comment3.target=void\ addPoints()
-numComments=4
+comment4.params=
+comment4.target=void\ worldDestroyer()
+numComments=5

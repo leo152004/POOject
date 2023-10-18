@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class City here.
@@ -11,12 +12,14 @@ public class City extends World
 {
     public int WorldWidth;
     public int pontos; //pontos ganhos pelo jogador
+    List<Build> buildings;
     
     public City()
     {    
         super(1200, 800, 1, false); 
         WorldWidth = getWidth();
         worldBuilder();
+        buildings = getObjects(Build.class);
         setPaintOrder(Barbie.class, Ken.class, Coin.class, Brick.class, Build.class, FundoMovel.class);
     }
         
@@ -30,12 +33,18 @@ public class City extends World
         for(int i = 0; i < 6000; i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
             addObject(new Brick(), i, 747);
         }
-        
-        addObject(new FundoMovel(), WorldWidth/2, getHeight()/2);
     }
     
     public void addPoints(){
         pontos += 20;
         showText("Pontos: " + pontos, getWidth()/2, 50);
+    }
+    
+    public void worldDestroyer(){
+         FundoMovel fundo = getObjects(FundoMovel.class).get(0);
+         removeObject(fundo);
+         removeObjects(buildings);
+         List<Brick> bricks = getObjects(Brick.class);
+         removeObjects(bricks);
     }
 }

@@ -12,6 +12,7 @@ public class Build extends MovingWorld
     GreenfootImage Build1 = getImage();
     public GreenfootImage Build2, Build3, halfBuild1, halfhalfBuild1, halfBuild2, halfhalfBuild2, halfBuild3, halfhalfBuild3;
     private boolean construido;
+    public static int place;
     
     public Build() {
         Build2 = new GreenfootImage("building2.png");
@@ -21,6 +22,7 @@ public class Build extends MovingWorld
     public void act()
     {
         if(!construido){
+            place = getX();
             randomBuilding();
             construido = true;
         }
