@@ -77,12 +77,12 @@ public class Players extends Actor
     }
     
     public void jump(String up){
-        if(Greenfoot.isKeyDown(up) && falling == false && jumping == false){
+        if(Greenfoot.isKeyDown(up) && jumping == false){
             jumping = true;
             jumpHeight = 20;
             setLocation(getX(), getY()-jumpHeight);
         }
-        else if (jumping == true && falling == false){
+        else if (jumping == true){
             jumpHeight--;
             setLocation(getX(), getY()-jumpHeight);
         }
@@ -93,7 +93,13 @@ public class Players extends Actor
     }
     
     public void gravity(){
-        if(!isTouching(Brick.class) || !isTouching(Stone.class))
+        if(!isTouching(Brick.class))
+            if(!jumping){
+                setLocation(getX(), getY()+ gravitySpeed);
+                gravitySpeed++;
+                falling = true;
+            }
+        if(!isTouching(Stone.class))
             if(!jumping){
                 setLocation(getX(), getY()+ gravitySpeed);
                 gravitySpeed++;
