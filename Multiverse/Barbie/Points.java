@@ -8,10 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Points extends Actor
 {
-    public int pontos; //pontos ganhos pelo jogador
+    private int pontos; //pontos ganhos pelo jogador
+    private City city;
     
-    public void addPoints(){
-        pontos += 20;
-        getWorld().showText("Pontos: " + pontos, getWorld().getWidth()/2, 50);
+    public Points(){
+        if(getWorld() != city)
+            pontos = city.pontosGlobal;
+        getWorld().showText("Pontos: " + pontos, 600, 50);
+    }
+
+    public void addPoints(int timing){
+        pontos += 120-timing;
+        getWorld().showText("Pontos: " + pontos, 600, 50);
     }
 }

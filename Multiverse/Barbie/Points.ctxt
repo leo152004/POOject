@@ -2,5 +2,7 @@
 comment0.target=Points
 comment0.text=\n\ Write\ a\ description\ of\ class\ Points\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=void\ addPoints()
-numComments=2
+comment1.target=Points()
+comment2.params=
+comment2.target=void\ addPoints()
+numComments=3

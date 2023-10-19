@@ -11,16 +11,9 @@ public class Level0 extends World
 {
     public Level0(){
         super(1200, 800, 1, false);
-        NUKE();
         decoracao();
         levellayers();
-    }
-    
-    public void NUKE(){
-         List<Build> buildings = getObjects(Build.class);
-         removeObjects(buildings);
-         List<Brick> bricks = getObjects(Brick.class);
-         removeObjects(bricks);
+        addObject(new Points(), 0,0);
     }
     
     public void pisoDePedra()

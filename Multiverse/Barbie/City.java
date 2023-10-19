@@ -11,6 +11,7 @@ import java.util.*;
 public class City extends World
 {
     public int WorldWidth;
+    public int pontosGlobal;
     
     public City()
     {    
@@ -18,11 +19,13 @@ public class City extends World
         WorldWidth = getWidth();
         worldBuilder();
         setPaintOrder(Barbie.class, Ken.class, Coin.class, Brick.class, Build.class, FundoMovel.class);
+        pontosGlobal = 0;
     }
         
     public void worldBuilder(){
         addObject(new Barbie(), WorldWidth*2/3, 600);
         addObject(new Ken(), WorldWidth/3, 600);
+        addObject(new Points(), 0,0);
         for(int i = 500; i <= 4500; i += 1000){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
             addObject(new Build(), i, 223);
         }
