@@ -7,6 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Stone extends LevelObjects
+
 {
     /**
      * Act - do whatever the Stone wants to do. This method is called whenever

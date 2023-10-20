@@ -27,12 +27,12 @@ public class Barbie extends Players
                 passos=getX();
             startPlace = true;
         }
-        move("right", "left", barbie, barbie1, barbie2, passos,speed);
+        movement("right", "left", barbie, barbie1, barbie2, passos,speed);
         jump("up");
         atGround();
         gravity();
         addPoints();
-        enterLevel("down");
+        enterLevel();
         if(Greenfoot.isKeyDown("d") && !Greenfoot.isKeyDown("right") ){
            movingPlayer(false);
         } else if(Greenfoot.isKeyDown("a") && !Greenfoot.isKeyDown("left")){

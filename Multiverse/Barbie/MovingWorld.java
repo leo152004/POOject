@@ -37,10 +37,6 @@ public class MovingWorld extends Actor
                         move(-5);
                         moving = true;
                     }
-                    if(getX() == 0 && whatsThis == "building"){
-                            getWorld().addObject(new Build(), getWorld().getWidth()+250, 332);
-                            getWorld().addObject(new Coin(), getWorld().getWidth()+20, Greenfoot.getRandomNumber(100)+450);
-                        }
                 }
             } 
     }
@@ -69,10 +65,6 @@ public class MovingWorld extends Actor
                         move(-5);
                         moving = true;
                     }
-                   if(getX() == 0 && whatsThis == "building"){
-                            getWorld().addObject(new Build(), getWorld().getWidth()+250, 332);
-                            getWorld().addObject(new Coin(), getWorld().getWidth()+20, Greenfoot.getRandomNumber(50)+500);
-                        }
                 }
             }
     }

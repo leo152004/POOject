@@ -27,12 +27,12 @@ public class Ken extends Players
                 passos=getX();
             startPlace = true;
         }
-        move("d", "a", ken, ken1, ken2, passos, speed);
+        movement("d", "a", ken, ken1, ken2, passos, speed);
         jump("w");
         atGround();
         gravity();
         addPoints();
-        enterLevel("s");
+        enterLevel();
         if(Greenfoot.isKeyDown("right") && !Greenfoot.isKeyDown("d") ){
            movingPlayer(false);
         } else if(Greenfoot.isKeyDown("left") && !Greenfoot.isKeyDown("a")){
