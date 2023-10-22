@@ -17,7 +17,9 @@ public class MyWorld extends World
         //levellayers();
         prepare();
         addObject(new Barbie(),200, 1507);
+        
     }
+    
 
     public void pisoDePedra()
     {
@@ -83,8 +85,6 @@ public class MyWorld extends World
         addObject(security50,271,1151);
         Stone stone5004 = new Stone();
         addObject(stone5004,68,1067);
-        Plant plant500 = new Plant();
-        addObject(plant500,19,1312);
         Stone stone5005 = new Stone();
         addObject(stone5005,495,841);
         Stone stone5006 = new Stone();
@@ -99,10 +99,6 @@ public class MyWorld extends World
         addObject(stone5009,198,633);
         Stone stone5010 = new Stone();
         addObject(stone5010,330,634);
-        Cactus cactus500 = new Cactus();
-        addObject(cactus500,235,884);
-        Plant plant502 = new Plant();
-        addObject(plant502,27,562);
         Security security53 = new Security();
         addObject(security53,169,575);
         Stone stone5011 = new Stone();
@@ -119,8 +115,8 @@ public class MyWorld extends World
         addObject(oppenheimer50,780,255);
         Business business50 = new Business();
         addObject(business50,843,251);
-        Business business502 = new Business();
-        addObject(business502,714,254);
+        Business business52 = new Business();
+        addObject(business52,714,254);
         Stone stone5015 = new Stone();
         addObject(stone5015,205,453);
         stone5015.setLocation(161,448);
@@ -129,11 +125,29 @@ public class MyWorld extends World
         addObject(stone5016,423,353);
         Stone stone5017 = new Stone();
         addObject(stone5017,614,666);
-        Plant plant503 = new Plant();
-        addObject(plant503,1020,262);
-        Cactus cactus502 = new Cactus();
-        addObject(cactus502,1056,267);
-        cactus502.setLocation(1055,274);
         stone5013.setLocation(911,313);
+        Plant plant = new Plant();
+        addObject(plant,268,1171);
+        Cactus cactus = new Cactus();
+        addObject(cactus,510,1181);
+        cactus.setLocation(518,1177);
+        Plant plant2 = new Plant();
+        addObject(plant2,442,794);
+        Cactus cactus2 = new Cactus();
+        addObject(cactus2,688,803);
+        Plant plant3 = new Plant();
+        addObject(plant3,144,588);
+        Cactus cactus3 = new Cactus();
+        addObject(cactus3,392,597);
+        Cactus cactus4 = new Cactus();
+        addObject(cactus4,150,393);
+        Plant plant4 = new Plant();
+        addObject(plant4,1025,265);
+        Cactus cactus5 = new Cactus();
+        addObject(cactus5,225,893);
+        Plant plant5 = new Plant();
+        addObject(plant5,21,1318);
+        plant5.setLocation(11,1325);
+        security50.setLocation(289,1150);
     }
 }

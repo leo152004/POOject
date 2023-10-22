@@ -189,5 +189,18 @@ public class MyWorld extends World
         stone4034.setLocation(689,1004);
         Business business403 = new Business();
         addObject(business403,478,827);
+        
+        Plant plant46 = new Plant();
+        addObject(plant46,13,454);
+        Plant plant47 = new Plant();
+        addObject(plant47,931,615);
+        Plant plant48 = new Plant();
+        addObject(plant48,370,1157);
+        Cactus cactus47 = new Cactus();
+        addObject(cactus47,1182,620);
+        Cactus cactus48 = new Cactus();
+        addObject(cactus48,752,1167);
+        Cactus cactus49 = new Cactus();
+        addObject(cactus49,261,461);
     }
 }
