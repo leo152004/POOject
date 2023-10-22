@@ -10,29 +10,29 @@ public class MyWorld extends World
 {
     public MyWorld()
     {    
-        super(1200, 1600, 1, false); 
+        super(1200, 800, 1, false); 
         pisoDePedra();
         setBackground("BackgroundLevel.png");
         decoracao();
         //levellayers();
         prepare();
-        addObject(new Barbie(),200, 1507);
+        addObject(new Barbie(),200, 707);
     }
 
     public void pisoDePedra()
     {
         for(int i = 0; i < getWidth(); i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
-            addObject(new Stone(), i, 1547);
+            addObject(new Stone(), i, 747);
         }
     }
 
     public void decoracao(){
-        addObject(new Cactus(),getWidth()/2, 1507);
-        addObject(new Cactus(),getWidth()-100, 1507);
-        addObject(new Cactus(),getWidth()-1100, 1507);
-        addObject(new Plant(),getWidth()/3, 1507);
-        addObject(new Plant(),getWidth()-300, 1507);
-        addObject(new Plant(),getWidth()-1000, 1507);
+        addObject(new Cactus(),getWidth()/2, 707);
+        addObject(new Cactus(),getWidth()-100, 707);
+        addObject(new Cactus(),getWidth()-1100, 707);
+        addObject(new Plant(),getWidth()/3, 707);
+        addObject(new Plant(),getWidth()-300, 707);
+        addObject(new Plant(),getWidth()-1000, 707);
     }
     /*public void levellayers(){
     for(int i = 0 ; i <=4 ; i++){
@@ -69,134 +69,58 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-
-        Stone stone3000 = new Stone();
-        addObject(stone3000,127,1396);
-        Stone stone3002 = new Stone();
-        addObject(stone3002,247,1396);
-        Stone stone3003 = new Stone();
-        addObject(stone3003,384,1369);
-        Stone stone3004 = new Stone();
-        addObject(stone3004,69,1172);
-        Stone stone3005 = new Stone();
-        addObject(stone3005,518,1342);
-        Stone stone3006 = new Stone();
-        addObject(stone3006,854,1273);
-        Stone stone3007 = new Stone();
-        addObject(stone3007,985,1246);
-        Stone stone3008 = new Stone();
-        addObject(stone3008,1130,1381);
-        Stone stone3009 = new Stone();
-        addObject(stone3009,314,1093);
-        Stone stone3010 = new Stone();
-        addObject(stone3010,449,1065);
-        Stone stone3011 = new Stone();
-        addObject(stone3011,423,219);
-        Stone stone3012 = new Stone();
-        addObject(stone3012,555,219);
-        Stone stone3013 = new Stone();
-        addObject(stone3013,687,221);
-        stone3013.setLocation(690,220);
-        stone3013.setLocation(689,218);
-        Stone stone3014 = new Stone();
-        addObject(stone3014,809,220);
-        stone3014.setLocation(822,223);
-        Stone stone3015 = new Stone();
-        addObject(stone3015,1129,1077);
-        Stone stone3016 = new Stone();
-        addObject(stone3016,639,1180);
-        Stone stone3017 = new Stone();
-        addObject(stone3017,740,990);
-        Stone stone3018 = new Stone();
-        addObject(stone3018,875,990);
-        Stone stone3019 = new Stone();
-        addObject(stone3019,167,908);
-        Stone stone3020 = new Stone();
-        addObject(stone3020,66,880);
-        stone3019.setLocation(148,915);
-        stone3019.setLocation(148,911);
-        stone3019.setLocation(148,908);
-        stone3019.setLocation(144,895);
-        removeObject(stone3020);
-        stone3019.setLocation(78,849);
-        Stone stone30021 = new Stone();
-        addObject(stone30021,177,884);
-        Stone stone3021 = new Stone();
-        addObject(stone3021,437,769);
-        Stone stone3022 = new Stone();
-        addObject(stone3022,562,769);
-        Stone stone3023 = new Stone();
-        addObject(stone3023,1037,824);
-        stone3023.setLocation(1194,800);
-        stone3023.setLocation(1138,798);
-        Stone stone3024 = new Stone();
-        addObject(stone3024,1038,820);
-        Stone stone3025 = new Stone();
-        addObject(stone3025,825,671);
-        Stone stone27 = new Stone();
-        addObject(stone27,192,579);
-        Stone stone28 = new Stone();
-        addObject(stone28,67,396);
-        Stone stone29 = new Stone();
-        addObject(stone29,502,431);
-        Stone stone30 = new Stone();
-        addObject(stone30,371,431);
-        Stone stone31 = new Stone();
-        addObject(stone31,1131,310);
-        Stone stone32 = new Stone();
-        addObject(stone32,966,470);
-        stone3014.setLocation(838,219);
-        removeObject(stone3014);
-        Stone stone3035 = new Stone();
-        addObject(stone3014,813,218);
-        Plant plant40 = new Plant();
-        addObject(plant40,73,1351);
-        Cactus cactus40 = new Cactus();
-        addObject(cactus40,304,1362);
-        plant40.setLocation(73,1327);
-        Security security40 = new Security();
-        addObject(security40,73,1332);
-        plant40.setLocation(70,1350);
-        Plant plant42 = new Plant();
-        addObject(plant42,683,942);
-        Cactus cactus42 = new Cactus();
-        addObject(cactus42,939,952);
-        plant42.setLocation(680,945);
-        Security security42 = new Security();
-        addObject(security42,700,927);
-        Plant plant43 = new Plant();
-        addObject(plant43,383,726);
-        Cactus cactus43 = new Cactus();
-        addObject(cactus43,624,735);
-        plant43.setLocation(389,722);
-        Security security43 = new Security();
-        addObject(security43,389,707);
-        Plant plant44 = new Plant();
-        addObject(plant44,317,388);
-        Cactus cactus44 = new Cactus();
-        addObject(cactus44,561,397);
-        plant44.setLocation(315,390);
-        Security security44 = new Security();
-        addObject(security44,325,370);
-        Plant plant45 = new Plant();
-        addObject(plant45,259,1044);
-        Plant plant46 = new Plant();
-        addObject(plant46,26,804);
-        Plant plant47 = new Plant();
-        addObject(plant47,1021,426);
-        Plant plant48 = new Plant();
-        addObject(plant48,571,171);
-        Cactus cactus45 = new Cactus();
-        addObject(cactus45,699,182);
-        Cactus cactus46 = new Cactus();
-        addObject(cactus46,1188,275);
-        Plant plant49 = new Plant();
-        addObject(plant49,1181,755);
-        Cactus cactus47 = new Cactus();
-        addObject(cactus47,903,1242);
-        Plant plant440 = new Plant();
-        addObject(plant440,1043,1197);
-        Cactus cactus48 = new Cactus();
-        addObject(cactus48,162,848);
+        addObject(new Stone(),127,596);
+        addObject(new Stone(),247,596);
+        addObject(new Stone(),384,569);
+        addObject(new Stone(),69,372);
+        addObject(new Stone(),518,542);
+        addObject(new Stone(),854,473);
+        addObject(new Stone(),985,446);
+        addObject(new Stone(),1130,581);
+        addObject(new Stone(),314,293);
+        addObject(new Stone(),449,265);
+        addObject(new Stone(),423,-581);
+        addObject(new Stone(),555,-581);
+        addObject(new Stone(),689,-581);
+        addObject(new Stone(),822,-581);
+        addObject(new Stone(),1129,277);
+        addObject(new Stone(),639,380);
+        addObject(new Stone(),740,190);
+        addObject(new Stone(),875,190);
+        addObject(new Stone(),78,49);
+        addObject(new Stone(),177,84);
+        addObject(new Stone(),437,-31);
+        addObject(new Stone(),562,-31);
+        addObject(new Stone(),1138,-2);
+        addObject(new Stone(),1038,20);
+        addObject(new Stone(),825,-129);
+        addObject(new Stone(),192,-221);
+        addObject(new Stone(),67,-404);
+        addObject(new Stone(),502,-369);
+        addObject(new Stone(),371,-369);
+        addObject(new Stone(),1131,-49);
+        addObject(new Stone(),966,-330);
+        addObject(new Stone(),813,-582);
+        addObject(new Cactus(),304,562);
+        addObject(new Security(),73,532);
+        addObject(new Plant(),70,550);
+        addObject(new Cactus(),939,152);
+        addObject(new Plant(),680,145);
+        addObject(new Security(),700,127);
+        addObject(new Plant(),389,-78);
+        addObject(new Security(),389,-93);
+        addObject(new Cactus(),561,-403);
+        addObject(new Plant(),315,-410);
+        addObject(new Security(),325,-430);
+        addObject(new Security(),259,-556);
+        addObject(new Plant(),26,4);
+        addObject(new Plant(),1021,-374);
+        addObject(new Plant(),571,-629);
+        addObject(new Cactus(),699,-618);
+        addObject(new Cactus(),1188,-525);
+        addObject(new Plant(),1181,-45);
+        addObject(new Cactus(),903,442);
+        addObject(new Plant(),1043,397);
+        addObject(new Cactus(),162,48);
     }
 }
