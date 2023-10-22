@@ -14,6 +14,7 @@ public class Cactus extends LevelObjects
      */
     public void act()
     {
-        // Add your action code here.
+        gravity();
+        atGround();
     }
 }

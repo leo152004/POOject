@@ -1,44 +1,39 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Players here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Players extends Actor
+public class Players extends Gravity
 {
     public boolean jumping; //define se esta a saltar
-    public boolean falling; //define se esta a cair
-    public boolean flip; //define se a imagem esta invertida ou nao
-    public int jumpHeight;  //a altura que o player pode saltar
-    public int gravitySpeed; //a velocidade da gravidade quando cai
-    public int flipCounter; // contador para mudar a imagem
-    public int imageFliped; //qual a imagem a ser usada
+    private boolean flip; //define se a imagem esta invertida ou nao
+    private int jumpHeight;  //a altura que o player pode saltar
+    private int flipCounter; // contador para mudar a imagem
+    private int imageFliped; //qual a imagem a ser usada
     private boolean atGround;
-    
-    public void movement(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, int passos, int speed){
-        if(passos <= 5900 && passos > 100){
-            if(Greenfoot.isKeyDown(right) && getX() <= getWorld().getWidth()-100){
-                move(speed);
-                passos+=5;
-            }
-            if(Greenfoot.isKeyDown(right))
-                moveImage(left, right, base, walk1, walk2);
-            if(Greenfoot.isKeyDown(left) && getX() >= 100){
-                move(-speed);
-                passos-=5;
-            }
-            if(Greenfoot.isKeyDown(left))
-                moveImage(left, right, base, walk1, walk2);
+    City city;
+
+    public void move(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
+        if(Greenfoot.isKeyDown(right)){
+            move(5);
         }
-        
+        if(Greenfoot.isKeyDown(right))
+            moveImage(left, right, base, walk1, walk2);
+        if(Greenfoot.isKeyDown(left)){
+            move(-5);
+        }
+        if(Greenfoot.isKeyDown(left))
+            moveImage(left, right, base, walk1, walk2);
+
         if(!(Greenfoot.isKeyDown(left) || Greenfoot.isKeyDown(right))){
             setImage(base);
             imageFliped = 0;
         }
     }
-    
+
     public void moveImage(String left, String right, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(flipCounter == 10){
             if(imageFliped == 0){
@@ -57,7 +52,7 @@ public class Players extends Actor
             flipCounter = 0;
         }
         flipCounter++;
-        
+
         if(Greenfoot.isKeyDown(left)){
             if(!flip){
                 base.mirrorHorizontally();
@@ -75,7 +70,7 @@ public class Players extends Actor
             }
         }
     }
-    
+
     public void jump(String up){
         if(Greenfoot.isKeyDown(up) && falling == false && jumping == false){
             jumping = true;
@@ -86,53 +81,37 @@ public class Players extends Actor
             jumpHeight--;
             setLocation(getX(), getY()-jumpHeight);
         }
-         if (jumping == true && jumpHeight <= 0){
+        if (jumping == true && jumpHeight <= 0){
             jumping = false;
             falling = true;
         }
     }
-    
-    public void gravity(){
-        if(!isTouching(Brick.class) || !isTouching(Stone.class))
-            if(!jumping){
-                setLocation(getX(), getY()+ gravitySpeed);
-                gravitySpeed++;
-                falling = true;
+
+    public void enterLevel(String down){
+        if (Greenfoot.isKeyDown(down) && (getWorld() instanceof City) && (getX() >= 550 && getX() <= 650)){
+            Greenfoot.setWorld(new Level0());
+        }
+    }
+
+    public void death(){
+        if(isTouching(Business.class) || isTouching(Oppenheimer.class) || isTouching(Security.class)){
+            for(int i = 0; i < 3; i++){
+                getImage().setTransparency(0);
+                Greenfoot.delay(20);
+                getImage().setTransparency(255);
+                Greenfoot.delay(20);
             }
-    }
-    
-    public void atGround(){
-        if(isTouching(Brick.class) || isTouching(Stone.class)){
-            gravitySpeed = 0;
-            falling = false;
-        }
-    }
-    
-    public void addPoints(){
-        if(isTouching(Coin.class)){
-            City Level1 = (City)getWorld();
-            removeTouching(Coin.class);
-            Level1.addPoints();
-        }
-    }
-    
-    public void enterLevel(){
-        if(isTouching(Build.class)){
-            if(Build.place >= 450 && Build.place <= 550)
-                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
-                    Greenfoot.setWorld(new Level0());
-            if(Build.place >= 1450 && Build.place <= 1550)     
-                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
-                    Greenfoot.setWorld(new Level1());
-            if(Build.place >= 2450 && Build.place <= 2550)
-                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
-                    Greenfoot.setWorld(new Level2());
-            if(Build.place >= 3450 && Build.place <= 3550)
-                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
-                    Greenfoot.setWorld(new Level3());
-            if(Build.place >= 4450 && Build.place <= 4550)
-                if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
-                    Greenfoot.setWorld(new Level4());
+            String world = getWorld().toString();
+            if(world == "Level0")
+                Greenfoot.setWorld(new Level0());
+            if(world == "Level1")
+                Greenfoot.setWorld(new Level1());
+            if(world == "Level2")
+                Greenfoot.setWorld(new Level2());
+            if(world == "Level3")
+                Greenfoot.setWorld(new Level3());
+            if(world == "Level4")
+                Greenfoot.setWorld(new Level4());
         }
     }
 }

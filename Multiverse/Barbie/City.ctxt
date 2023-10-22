@@ -1,12 +1,8 @@
 #BlueJ class context
 comment0.target=City
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ City\ here.\r\n\ \r\n\ @author\ Leandro\ Gon\u00E7alves\ \r\n\ @version\ 19/10/2023\r\n\ https\://wallpaperaccess.com/city-pixel-art\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ City\ here.\n\ \n\ @author\ Leandro\ Gon\u00E7alves\ \n\ @version\ 19/10/2023\n\ https\://wallpaperaccess.com/city-pixel-art\n
 comment1.params=
 comment1.target=City()
 comment2.params=
 comment2.target=void\ worldBuilder()
-comment3.params=
-comment3.target=void\ addPoints()
-comment4.params=
-comment4.target=void\ worldDestroyer()
-numComments=5
+numComments=3

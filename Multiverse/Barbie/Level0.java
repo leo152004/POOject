@@ -1,25 +1,32 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
- * Primeiro Nivel do jogo da "Barbie" 
+ * Write a description of class MyWorld here.
  * 
- * @author Francisco Henriques 
- * @version 18/10/2023
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class Level0 extends City
+public class Level0 extends Level
 {
     public Level0()
-    { 
+    {    
         pisoDePedra();
+        setBackground("BackgroundLevel.png");
         decoracao();
-        levellayers();
+        //levellayers();
+        prepare();
+        addObject(new Barbie(),200, 707);
+        addObject(new Ken(), 400, 707);
     }
+
     public void pisoDePedra()
     {
         for(int i = 0; i < getWidth(); i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
             addObject(new Stone(), i, 747);
         }
     }
+
     public void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);
         addObject(new Cactus(),getWidth()-100, 707);
@@ -28,34 +35,95 @@ public class Level0 extends City
         addObject(new Plant(),getWidth()-300, 707);
         addObject(new Plant(),getWidth()-1000, 707);
     }
-    public void levellayers(){
-        for(int i = 0 ; i <=4 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),100);
+    /*public void levellayers(){
+    for(int i = 0 ; i <=4 ; i++){
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),100);
     }
-        for(int i = 0 ; i <=5 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),250);
-    }
-        for(int i = 0 ; i <=4 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),400);
+    for(int i = 0 ; i <=5 ; i++){
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),250);
     }
     for(int i = 0 ; i <=4 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),550);
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),400);
     }
     for(int i = 0 ; i <=4 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),-50);
-    }
-        for(int i = 0 ; i <=5 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),-200);
-    }
-        for(int i = 0 ; i <=4 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),-350);
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),550);
     }
     for(int i = 0 ; i <=4 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),-500);
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-50);
+    }
+    for(int i = 0 ; i <=5 ; i++){
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-200);
+    }
+    for(int i = 0 ; i <=4 ; i++){
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-350);
+    }
+    for(int i = 0 ; i <=4 ; i++){
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-500);
     }
     for(int i = 0 ; i <=30 ; i++){
-        addObject(new Stone(), Greenfoot.getRandomNumber(1100),-650);
-    }
-    
+    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-650);
+    }*/
+
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        addObject(new Stone(),986,603);
+        addObject(new Stone(),850,603);
+        addObject(new Stone(),610,603);
+        addObject(new Stone(),396,606);
+        addObject(new Stone(),738,450);
+        addObject(new Stone(),600,420);
+        addObject(new Stone(),336,448);
+        addObject(new Stone(),259,607);
+        addObject(new Stone(),261,606);
+        addObject(new Stone(),72,440);
+        addObject(new Stone(),1123,494);
+        addObject(new Stone(),940,376);
+        addObject(new Stone(),236,309);
+        addObject(new Stone(),371,279);
+        addObject(new Stone(),1075,376);
+        addObject(new Stone(),767,257);
+        addObject(new Stone(),560,135);
+        addObject(new Stone(),901,225);
+        addObject(new Stone(),1130,268);
+        addObject(new Stone(),696,134);
+        addObject(new Stone(),693,135);
+        addObject(new Stone(),324,63);
+        addObject(new Stone(),130,-26);
+        addObject(new Stone(),55,163);
+        addObject(new Stone(),1043,83);
+        addObject(new Stone(),788,-25);
+        addObject(new Stone(),498,-110);
+        addObject(new Stone(),362,-143);
+        addObject(new Stone(),226,-177);
+        addObject(new Stone(),666,-277);
+        addObject(new Stone(),393,-634);
+        addObject(new Stone(),529,-634);
+        addObject(new Stone(),663,-634);
+        addObject(new Stone(),799,-634);
+        addObject(new Stone(),1049,-162);
+        addObject(new Stone(),408,-376);
+        addObject(new Stone(),153,-493);
+        addObject(new Stone(),801,-306);
+        addObject(new Stone(),938,-355);
+        addObject(new Stone(),1129,-516);
+        addObject(new Stone(),674,-479);
+        addObject(new Plant(),79,-74);
+        addObject(new Plant(),844,-357);
+        addObject(new Cactus(),448,-415);
+        addObject(new Cactus(),521,-676);
+        addObject(new Plant(),664,-684);
+        addObject(new Cactus(),991,43);
+        addObject(new Plant(),283,257);
+        addObject(new Cactus(),694,412);
+        List<Stone> stones = getObjects(Stone.class);
+        for (int i = 0; i < stones.size(); i++){
+            int x = stones.get(i).getX();
+            int y = stones.get(i).getY() - 16;
+            addObject(new Ground(), x, y);
+        }
     }
 }

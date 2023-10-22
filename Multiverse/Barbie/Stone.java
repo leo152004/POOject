@@ -15,6 +15,6 @@ public class Stone extends LevelObjects
      */
     public void act()
     {
-        // Add your action code here.
+        descendo();
     }
 }
