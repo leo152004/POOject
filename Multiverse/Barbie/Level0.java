@@ -15,8 +15,6 @@ public class Level0 extends Level
         decoracao();
         //levellayers();
         prepare();
-        addObject(new Barbie(),400, 680);
-        addObject(new Ken(), 200, 680);
     }
 
     public void pisoDePedra()
@@ -67,41 +65,15 @@ public class Level0 extends Level
         addObject(new Plant(),getWidth()-300, 707);
         addObject(new Plant(),getWidth()-1000, 707);
     }
-    /*public void levellayers(){
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),100);
-    }
-    for(int i = 0 ; i <=5 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),250);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),400);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),550);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-50);
-    }
-    for(int i = 0 ; i <=5 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-200);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-350);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-500);
-    }
-    for(int i = 0 ; i <=30 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-650);
-    }*/
-
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
+        addObject(new Barbie(),400, 680);
+        addObject(new Ken(), 200, 680);
         addObject(new Stone(),986,603);
         addObject(new Stone(),850,603);
         addObject(new Stone(),610,603);

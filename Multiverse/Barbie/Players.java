@@ -98,7 +98,9 @@ public class Players extends Gravity
     public void isDead(){
         if(isTouching(Business.class) || isTouching(Oppenheimer.class) || isTouching(Security.class) || getY() >= 799){
             theLevel = getWorldOfType(Level0.class);
+            Vidas vida = getWorld().getObjects(Vidas.class).get(0);
             theLevel.death(this);
+            vida.checkLife();
         }
     }
 
