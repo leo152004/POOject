@@ -12,12 +12,11 @@ public class Level0 extends Level
     public Level0()
     {    
         pisoDePedra();
-        setBackground("BackgroundLevel.png");
         decoracao();
         //levellayers();
         prepare();
-        addObject(new Barbie(),200, 707);
-        addObject(new Ken(), 400, 707);
+        addObject(new Barbie(),400, 680);
+        addObject(new Ken(), 200, 680);
     }
 
     public void pisoDePedra()
@@ -26,6 +25,39 @@ public class Level0 extends Level
             addObject(new Stone(), i, 747);
         }
     }
+
+    public void death(Players player){
+        vidas--;
+        Vidas vida = getObjects(Vidas.class).get(0);
+        vida.checkLife();
+        for(int i = 0; i < 3; i++){
+            player.getImage().setTransparency(0);
+            Greenfoot.delay(20);
+            player.getImage().setTransparency(255);
+            Greenfoot.delay(20);
+        }
+        if(vidas > 0){
+            List<Stone> stones = getObjects(Stone.class);
+            List<Ground> ground = getObjects(Ground.class);
+            List<Plant> plants = getObjects(Plant.class);
+            List<Cactus> cactus = getObjects(Cactus.class);
+            removeObjects(stones);
+            removeObjects(ground);
+            removeObjects(plants);
+            removeObjects(cactus);
+            pisoDePedra();
+            decoracao();
+            prepare();
+        }
+        if(vidas == 0){
+            GameOver over = new GameOver();
+            addObject(over, 600, 400);
+            Greenfoot.delay(2048);
+            removeObject(getObjects(GameOver.class).get(0));
+        }
+    }
+    
+    
 
     public void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);

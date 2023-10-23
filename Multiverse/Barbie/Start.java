@@ -14,6 +14,8 @@ public class Start extends World
         startMenu();
     }
     
+    public void death(Actor a){}
+    
     public void startMenu(){
         Icon icon = new Icon();
         addObject(icon, getWidth()/2, getHeight()/3);

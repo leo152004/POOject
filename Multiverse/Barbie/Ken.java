@@ -11,12 +11,12 @@ public class Ken extends Players
 {
     GreenfootImage ken = getImage();
     private GreenfootImage ken1, ken2;
-    
+
     public Ken(){
         ken1 = new GreenfootImage("ken1.png");
         ken2 = new GreenfootImage("ken2.png");
     }
-    
+
     public void act()
     {
         move("d", "a", ken, ken1, ken2);
@@ -25,6 +25,15 @@ public class Ken extends Players
         if(!jumping)
             gravity();
         enterLevel("s");
-        death();
+        isDead();
+        outTheGround();
+        subindoNivel();
+    }
+
+    public void subindoNivel(){
+        World world = getWorldOfType(Level.class);
+        if (world != null){
+            descendo();
+        }
     }
 }

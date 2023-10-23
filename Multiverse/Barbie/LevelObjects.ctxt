@@ -1,6 +1,4 @@
 #BlueJ class context
 comment0.target=LevelObjects
 comment0.text=\n\ Write\ a\ description\ of\ class\ MovingWorld\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=void\ descendo()
-numComments=2
+numComments=1

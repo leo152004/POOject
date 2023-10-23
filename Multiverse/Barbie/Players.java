@@ -15,6 +15,8 @@ public class Players extends Gravity
     private int imageFliped; //qual a imagem a ser usada
     private boolean atGround;
     City city;
+    Level level;
+    Level0 theLevel;
 
     public void move(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(Greenfoot.isKeyDown(right)){
@@ -93,25 +95,17 @@ public class Players extends Gravity
         }
     }
 
-    public void death(){
-        if(isTouching(Business.class) || isTouching(Oppenheimer.class) || isTouching(Security.class)){
-            for(int i = 0; i < 3; i++){
-                getImage().setTransparency(0);
-                Greenfoot.delay(20);
-                getImage().setTransparency(255);
-                Greenfoot.delay(20);
-            }
-            String world = getWorld().toString();
-            if(world == "Level0")
-                Greenfoot.setWorld(new Level0());
-            if(world == "Level1")
-                Greenfoot.setWorld(new Level1());
-            if(world == "Level2")
-                Greenfoot.setWorld(new Level2());
-            if(world == "Level3")
-                Greenfoot.setWorld(new Level3());
-            if(world == "Level4")
-                Greenfoot.setWorld(new Level4());
+    public void isDead(){
+        if(isTouching(Business.class) || isTouching(Oppenheimer.class) || isTouching(Security.class) || getY() >= 799){
+            theLevel = getWorldOfType(Level0.class);
+            theLevel.death(this);
+        }
+    }
+
+    public void outTheGround(){
+        List<Ground> platforms = getIntersectingObjects(Ground.class);
+        if (!platforms.isEmpty()){
+            setLocation(getX(), platforms.get(0).getY()-getImage().getHeight()/2);
         }
     }
 }

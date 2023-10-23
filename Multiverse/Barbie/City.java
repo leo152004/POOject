@@ -10,24 +10,20 @@ import java.util.*;
  */
 public class City extends World
 {
-    public int WorldWidth;
-    public int pontos; //pontos ganhos pelo jogador
-    List<Build> buildings;
-    
     public City()
     {    
         super(1200, 800, 1, false); 
-        WorldWidth = getWidth();
         worldBuilder();
-        buildings = getObjects(Build.class);
         setPaintOrder(Barbie.class, Ken.class, Brick.class, Build.class);
     }
+    
+    public void death(Actor a){}
         
     public void worldBuilder(){
-        addObject(new Barbie(), WorldWidth*2/3, 600);
-        addObject(new Ken(), WorldWidth/3, 600);
+        addObject(new Barbie(), getWidth()*2/3, 600);
+        addObject(new Ken(), getWidth()/3, 600);
         addObject(new Build(), 600, 223);
-        for(int i = 0; i < getWidth()/2; i += 96){ 
+        for(int i = 0; i < getWidth(); i += 96){ 
             addObject(new Brick(), i, 747);
         }
     }

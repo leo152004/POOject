@@ -7,10 +7,9 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Brick extends MovingWorld
+public class Brick extends Actor
 {
     GreenfootImage brick = getImage();    
     public void act(){
-        movingWorld("brick");
     }
 }

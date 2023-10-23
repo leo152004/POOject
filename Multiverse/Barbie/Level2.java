@@ -25,6 +25,27 @@ public class Level2 extends Level
             addObject(new Stone(), i, 747);
         }
     }
+    
+    public void death(Players player){
+        vidas--;
+        Vidas vida = getObjects(Vidas.class).get(0);
+        vida.checkLife();
+        for(int i = 0; i < 3; i++){
+            player.getImage().setTransparency(0);
+            Greenfoot.delay(20);
+            player.getImage().setTransparency(255);
+            Greenfoot.delay(20);
+        }
+        if(vidas > 0){
+            Greenfoot.setWorld(new Level2());
+        }
+        if(vidas == 0){
+            GameOver over = new GameOver();
+            addObject(over, 600, 400);
+            Greenfoot.delay(2048);
+            removeObject(getObjects(GameOver.class).get(0));
+        }
+    }
 
     public void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);

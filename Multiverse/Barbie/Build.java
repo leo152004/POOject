@@ -7,12 +7,11 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Build extends MovingWorld
+public class Build extends Actor
 {
     GreenfootImage Build1 = getImage();
-    public GreenfootImage Build2, Build3, halfBuild1, halfhalfBuild1, halfBuild2, halfhalfBuild2, halfBuild3, halfhalfBuild3;
+    public GreenfootImage Build2, Build3;
     private boolean construido;
-    public static int place;
     
     public Build() {
         Build2 = new GreenfootImage("building2.png");
@@ -21,15 +20,13 @@ public class Build extends MovingWorld
     
     public void act()
     {
+        runOnce();
+    }
+    
+    private void runOnce(){
         if(!construido){
-            place = getX();
             randomBuilding();
             construido = true;
-        }
-        movingWorld("building");
-        //getWorld().addObject(new Brick(), getX()+100, 481);
-        if(isTouching(Build.class)){
-            removeTouching(Build.class);
         }
     }
     
