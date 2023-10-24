@@ -15,8 +15,8 @@ public class Players extends Gravity
     private int imageFliped; //qual a imagem a ser usada
     private boolean atGround;
     City city;
-    Level level;
-    Level0 theLevel;
+    World level;
+    World theLevel;
 
     public void move(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(Greenfoot.isKeyDown(right)){
@@ -97,17 +97,33 @@ public class Players extends Gravity
 
     public void isDead(){
         if(isTouching(Business.class) || isTouching(Oppenheimer.class) || isTouching(Security.class) || getY() >= 799){
-            theLevel = getWorldOfType(Level0.class);
-            Vidas vida = getWorld().getObjects(Vidas.class).get(0);
-            theLevel.death(this);
-            vida.checkLife();
+          World theLevel = getWorld();
+            //Vidas vida = getWorld().getObjects(Vidas.class).get(0);
+           ((Level0)theLevel).death(this);
+         
+            //vida.checkLife();
+        }
+    }
+
+    public void youWon(){
+        if(isTouching(Special.class)){
+            getWorld().addObject(new NextLevel(), 600, 400);
+            Greenfoot.delay(100);
+            NextLevel next = getWorld().getObjects(NextLevel.class).get(0);
+            getWorld().removeObject(next);
+            Level0 lev0 = getWorldOfType(Level0.class);
+            if (lev0 != null){
+                Greenfoot.setWorld(new Level1());
+            }
         }
     }
 
     public void outTheGround(){
         List<Ground> platforms = getIntersectingObjects(Ground.class);
-        if (!platforms.isEmpty()){
-            setLocation(getX(), platforms.get(0).getY()-getImage().getHeight()/2);
-        }
+        /*if (!platforms.isEmpty()){
+        setLocation(getX(), platforms.get(0).getY()-getImage().getHeight()/2);
+        }*/
+        if(!platforms.isEmpty() && platforms.get(0).getY() < getY()+getImage().getHeight()/2 && platforms.get(0).getY() != platforms.get(0).getY()-getImage().getHeight()/2)
+            setLocation(getX(), getY()-5);
     }
 }

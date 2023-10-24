@@ -21,13 +21,20 @@ public class Ken extends Players
     {
         move("d", "a", ken, ken1, ken2);
         jump("w");
-        atGround();
+        atGroundConfirm();
         if(!jumping)
             gravity();
         enterLevel("s");
         isDead();
         outTheGround();
         subindoNivel();
+        youWon();
+    }
+    
+    private void atGroundConfirm(){
+        List<Ground> platforms = getIntersectingObjects(Ground.class);
+        if(!platforms.isEmpty() && platforms.get(0).getY() >= getY())
+            atGround();
     }
 
     public void subindoNivel(){

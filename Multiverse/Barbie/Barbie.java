@@ -21,13 +21,20 @@ public class Barbie extends Players
     {
         move("right", "left", barbie, barbie1, barbie2);
         jump("up");
-        atGround();
+        atGroundConfirm();
         if(!jumping)
             gravity();
         enterLevel("down");
         isDead();
         outTheGround();
         subindoNivel();
+        youWon();
+    }
+    
+    private void atGroundConfirm(){
+        List<Ground> platforms = getIntersectingObjects(Ground.class);
+        if(!platforms.isEmpty() && platforms.get(0).getY() >= getY()+getImage().getHeight()/2)
+            atGround();
     }
 
     public void subindoNivel(){

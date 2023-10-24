@@ -14,7 +14,10 @@ public class Level0 extends Level
         pisoDePedra();
         decoracao();
         //levellayers();
+        
         prepare();
+        addObject(new Barbie(),400, 680);
+        addObject(new Ken(), 200, 680);
     }
 
     public void pisoDePedra()
@@ -24,38 +27,12 @@ public class Level0 extends Level
         }
     }
 
-    public void death(Players player){
-        vidas--;
-        Vidas vida = getObjects(Vidas.class).get(0);
-        vida.checkLife();
-        for(int i = 0; i < 3; i++){
-            player.getImage().setTransparency(0);
-            Greenfoot.delay(20);
-            player.getImage().setTransparency(255);
-            Greenfoot.delay(20);
-        }
-        if(vidas > 0){
-            List<Stone> stones = getObjects(Stone.class);
-            List<Ground> ground = getObjects(Ground.class);
-            List<Plant> plants = getObjects(Plant.class);
-            List<Cactus> cactus = getObjects(Cactus.class);
-            removeObjects(stones);
-            removeObjects(ground);
-            removeObjects(plants);
-            removeObjects(cactus);
-            pisoDePedra();
-            decoracao();
-            prepare();
-        }
-        if(vidas == 0){
-            GameOver over = new GameOver();
-            addObject(over, 600, 400);
-            Greenfoot.delay(2048);
-            removeObject(getObjects(GameOver.class).get(0));
-        }
+    public void death(Players player){;
+        highDeath(player);
+        pisoDePedra();
+        decoracao();
+        prepare();
     }
-    
-    
 
     public void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);
@@ -65,15 +42,19 @@ public class Level0 extends Level
         addObject(new Plant(),getWidth()-300, 707);
         addObject(new Plant(),getWidth()-1000, 707);
     }
-    
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-        addObject(new Barbie(),400, 680);
-        addObject(new Ken(), 200, 680);
+        addObject(new Special(), 600, -675);
+        
+        /*if(vidas>=3)
+            addObject(new Vidas(), 100, 50);*/
+        
+        
         addObject(new Stone(),986,603);
         addObject(new Stone(),850,603);
         addObject(new Stone(),610,603);
