@@ -23,7 +23,7 @@ public class Level4 extends Level
     }
 
     public void death(Players player){;
-        hyperDeath(player);
+        hyperDeath(player, true);
         pisoDePedra();
         decoracao();
         prepare();
@@ -50,6 +50,7 @@ public class Level4 extends Level
 
     private void prepare()
     {
+        addObject(new Special(), 600, -675);
         addObject(new Stone(),71,854);
         addObject(new Stone(),393,-634);
         addObject(new Stone(),529,-634);

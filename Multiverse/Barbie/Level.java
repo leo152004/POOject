@@ -46,7 +46,7 @@ public class Level extends World
         pontos += time;
     }
 
-    public void hyperDeath(Players player){
+    public void hyperDeath(Players player, boolean last){
         for(int i = 0; i < 3; i++){
             player.getImage().setTransparency(0);
             Greenfoot.delay(10);
@@ -55,8 +55,6 @@ public class Level extends World
         }
         if(vidas > 0){
             vidas--;
-            Vidas vida = getObjects(Vidas.class).get(0);
-            vida.checkLife();
             List<Stone> stones = getObjects(Stone.class);
             List<Ground> ground = getObjects(Ground.class);
             List<Plant> plants = getObjects(Plant.class);
@@ -76,7 +74,10 @@ public class Level extends World
         if(vidas == 0){
             restartP();
             restartVidas();
-            Greenfoot.setWorld(new GameOver());
+            if (!last)
+                Greenfoot.setWorld(new GameOver());
+            else
+                Greenfoot.setWorld(new City());
         }
     }
 

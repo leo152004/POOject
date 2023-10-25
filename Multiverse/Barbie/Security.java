@@ -14,7 +14,8 @@ public class Security extends Enemies
     private int imageFliped; //qual a imagem a ser usado
     private int direction = 1;
     public Security(){
-        style();    }
+        style();    
+    }
 
     private void style(){
         if(Greenfoot.getRandomNumber(2) == 0){
@@ -37,7 +38,7 @@ public class Security extends Enemies
     }
 
     private void move(){
-        if ((direction == 1 && isTouching(Cactus.class)) || (direction == -1 && isTouching(Plant.class))) 
+        if ((direction == 1 && isTouching(Cactus.class)) || (direction == -1 && isTouching(Plant.class)) || isAtEdge()) 
             direction = -direction;
         move(direction);
     }
@@ -70,7 +71,6 @@ public class Security extends Enemies
                 walk1.mirrorHorizontally();
                 walk2.mirrorHorizontally();
                 flip = true;
-
             }
         }
         if(isTouching(Plant.class)){

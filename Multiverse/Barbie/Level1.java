@@ -30,7 +30,7 @@ public class Level1 extends Level
     }
 
     public void death(Players player){;
-        hyperDeath(player);
+        hyperDeath(player, false);
         pisoDePedra();
         decoracao();
         prepare();

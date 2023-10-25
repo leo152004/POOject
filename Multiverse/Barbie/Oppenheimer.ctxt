@@ -2,5 +2,15 @@
 comment0.target=Oppenheimer
 comment0.text=\n\ Write\ a\ description\ of\ class\ Oppenheimer\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=void\ act()
-numComments=2
+comment1.target=Oppenheimer()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ run()
+comment4.params=
+comment4.target=void\ turnAround()
+comment5.params=
+comment5.target=void\ runAway()
+comment6.params=
+comment6.target=void\ moveImage()
+numComments=7

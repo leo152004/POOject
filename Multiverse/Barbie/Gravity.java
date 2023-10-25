@@ -14,7 +14,7 @@ public class Gravity extends Actor
     private int desceu;
 
     public void gravity(){
-        if(!(isTouching(Brick.class) || isTouching(Ground.class))){
+        if(!isTouching(Ground.class)){
             setLocation(getX(), getY()+ gravitySpeed);
             gravitySpeed++;
             falling = true;
@@ -37,7 +37,7 @@ public class Gravity extends Actor
     }
 
     public void atGround(){
-        if(isTouching(Brick.class) || isTouching(Ground.class)){
+        if(isTouching(Ground.class)){
             gravitySpeed = 0;
             falling = false;
         }

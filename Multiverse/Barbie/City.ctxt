@@ -3,6 +3,4 @@ comment0.target=City
 comment0.text=\n\ Write\ a\ description\ of\ class\ City\ here.\n\ \n\ @author\ Leandro\ Gon\u00E7alves\ \n\ @version\ 19/10/2023\n\ https\://wallpaperaccess.com/city-pixel-art\n
 comment1.params=
 comment1.target=City()
-comment2.params=
-comment2.target=void\ worldBuilder()
-numComments=3
+numComments=2

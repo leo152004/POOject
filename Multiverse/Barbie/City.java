@@ -12,17 +12,9 @@ public class City extends World
 {
     public City()
     {    
-        super(1200, 800, 1, false); 
-        worldBuilder();
-        setPaintOrder(Barbie.class, Ken.class, Brick.class, Build.class);
-    }
-    
-    private void worldBuilder(){
-        addObject(new Barbie(), getWidth()*2/3, 600);
-        addObject(new Ken(), getWidth()/3, 600);
-        addObject(new Build(), 600, 223);
-        for(int i = 0; i < getWidth(); i += 96){ 
-            addObject(new Brick(), i, 747);
-        }
+        super(1200, 800, 1); 
+        getBackground().setColor(Color.BLACK);
+        getBackground().fill();
+        addObject(new Boom(), 600, 400);
     }
 }

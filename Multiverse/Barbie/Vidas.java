@@ -17,6 +17,10 @@ public class Vidas extends Actor
         coracao2 = new GreenfootImage("2coraçoes.png");
         coracao1 = new GreenfootImage("1coraçao.png");
     }
+    
+    public void act(){
+        checkLife();
+    }
 
     public void checkLife(){
         level = getWorldOfType(Level.class);
