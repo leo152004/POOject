@@ -28,18 +28,6 @@ public class Ken extends Players
         outTheGround();
         subindoNivel();
         youWon();
-    }
-
-    private void atGroundConfirm(){
-        List<Ground> platforms = getIntersectingObjects(Ground.class);
-        if(!platforms.isEmpty() && platforms.get(0).getY() >= getY())
-            atGround();
-    }
-
-    private void subindoNivel(){
-        World world = getWorldOfType(Level.class);
-        if (world != null){
-            descendo();
-        }
+        theEnd();
     }
 }

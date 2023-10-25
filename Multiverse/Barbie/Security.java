@@ -12,9 +12,10 @@ public class Security extends Enemies
     private boolean flip; //define se a imagem esta invertida ou nao
     private int flipCounter; // contador para mudar a imagem
     private int imageFliped; //qual a imagem a ser usado
-    private int direction = 1;
+    private int direction;
     public Security(){
         style();    
+        direction = 1;
     }
 
     private void style(){
@@ -80,6 +81,20 @@ public class Security extends Enemies
                 walk2.mirrorHorizontally();
                 flip = false;
 
+            }
+        }
+        if(isAtEdge()){
+            if(!flip){
+                base.mirrorHorizontally();
+                walk1.mirrorHorizontally();
+                walk2.mirrorHorizontally();
+                flip = true;
+            }
+            if(flip){
+                base.mirrorHorizontally();
+                walk1.mirrorHorizontally();
+                walk2.mirrorHorizontally();
+                flip = false;
             }
         }
     }

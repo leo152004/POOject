@@ -28,18 +28,6 @@ public class Barbie extends Players
         outTheGround();
         subindoNivel();
         youWon();
-    }
-
-    private void atGroundConfirm(){
-        List<Ground> platforms = getIntersectingObjects(Ground.class);
-        if(!platforms.isEmpty() && platforms.get(0).getY() >= getY()+getImage().getHeight()/2)
-            atGround();
-    }
-
-    private void subindoNivel(){
-        World world = getWorldOfType(Level.class);
-        if (world != null){
-            descendo();
-        }
+        theEnd();
     }
 }

@@ -54,7 +54,7 @@ public class Players extends Gravity
         flipCounter++;
         flipImage(base, walk1, walk2, left, right);
     }
-    
+
     private void flipImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, String left, String right){
         if(Greenfoot.isKeyDown(left)){
             if(!flip){
@@ -89,7 +89,7 @@ public class Players extends Gravity
             setFalling(true);
         }
     }
-    
+
     public boolean getJumping(){
         return jumping;
     }
@@ -119,17 +119,39 @@ public class Players extends Gravity
             Greenfoot.delay(200);
             NextLevel next = getWorld().getObjects(NextLevel.class).get(0);
             getWorld().removeObject(next);
-            if (getWorld() instanceof Level0)
+            if (getWorld() instanceof Level0){
+                level.jukebox("stop", "entrance");
                 Greenfoot.setWorld(new Level1());
-            if (getWorld() instanceof Level1)
+            }
+            if (getWorld() instanceof Level1){
+                level.jukebox("stop", "normal");
                 Greenfoot.setWorld(new Level2());
+            }
             if (getWorld() instanceof Level2)
                 Greenfoot.setWorld(new Level3());
             if (getWorld() instanceof Level3)
                 Greenfoot.setWorld(new Level4());
         }
     }
-    
+
+    public void subindoNivel(){
+        World world = getWorldOfType(Level.class);
+        if (world != null){
+            descendo();
+        }
+    }
+
+    public void atGroundConfirm(){
+        List<Ground> platforms = getIntersectingObjects(Ground.class);
+        if(!platforms.isEmpty() && platforms.get(0).getY() >= getY()+getImage().getHeight()/2)
+            atGround();
+    }
+
+    public void theEnd(){
+        if(isTouching(Oppenheimer.class))
+            Greenfoot.setWorld(new EndScreen());
+    }
+
     private void addPoints(Level level){
         level.addPoints();
     }

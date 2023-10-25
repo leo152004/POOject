@@ -77,7 +77,8 @@ public class Level4 extends Level
         addObject(new Plant(),144,-212);
         addObject(new Cactus(),392,-203);
         addObject(new Cactus(),150,-407);
-        addObject(new Plant(),1025,-535);
+        addObject(new Cactus(),1025,-535);
+        addObject(new Plant(),605,-535);
         addObject(new Cactus(),225,93);
         addObject(new Plant(),11,1325);
         addObject(new Security(),289,350);

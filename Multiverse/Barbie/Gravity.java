@@ -20,20 +20,26 @@ public class Gravity extends Actor
             falling = true;
         }
     }
-    
+
     public boolean getFalling(){
         return falling;
     }
-    
+
     public void setFalling(boolean fall){
         falling = fall;
     }
 
     public void descendo(){
-        if (desceu < 1200){
-                setLocation(getX(), getY()+2);
+        if(getWorld() instanceof Level4)
+            if (desceu < 800){
+                setLocation(getX(), getY()+1);
                 desceu++;
-        }
+            }
+        else
+            if (desceu < 1200){
+                setLocation(getX(), getY()+1);
+                desceu++;
+            }
     }
 
     public void atGround(){
