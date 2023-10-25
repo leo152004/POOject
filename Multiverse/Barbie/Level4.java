@@ -11,47 +11,35 @@ public class Level4 extends Level
     public Level4()
     {    
         pisoDePedra();
-        setBackground("trinity.png");
         decoracao();
-        //levellayers();
         prepare();
         addObject(new Barbie(),200, 707);
         addObject(new Ken(), 400, 707);
+        setTime(120);
     }
     
-    public void death(Players player){
-        vidas--;
-        Vidas vida = getObjects(Vidas.class).get(0);
-        vida.checkLife();
-        for(int i = 0; i < 3; i++){
-            player.getImage().setTransparency(0);
-            Greenfoot.delay(20);
-            player.getImage().setTransparency(255);
-            Greenfoot.delay(20);
-        }
-        if(vidas > 0){
-            Greenfoot.setWorld(new Level4());
-        }
-        if(vidas == 0){
-            GameOver over = new GameOver();
-            addObject(over, 600, 400);
-            Greenfoot.delay(2048);
-            removeObject(getObjects(GameOver.class).get(0));
-        }
+    public void act(){
+        timer();
     }
 
-    public void pisoDePedra()
+    public void death(Players player){;
+        hyperDeath(player);
+        pisoDePedra();
+        decoracao();
+        prepare();
+    }
+
+    private void pisoDePedra()
     {
         for(int i = 0; i < getWidth(); i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
             addObject(new Stone(), i, 747);
             addObject(new Stone(), i, 770);
             addObject(new Stone(), i, 790);
             addObject(new Stone(), i, 800);
-            
         }
     }
 
-    public void decoracao(){
+    private void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);
         addObject(new Cactus(),getWidth()-100, 707);
         addObject(new Cactus(),getWidth()-1100, 707);
@@ -59,42 +47,14 @@ public class Level4 extends Level
         addObject(new Plant(),getWidth()-300, 707);
         addObject(new Plant(),getWidth()-1000, 707);
     }
-    /*public void levellayers(){
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),100);
-    }
-    for(int i = 0 ; i <=5 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),250);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),400);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),550);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-50);
-    }
-    for(int i = 0 ; i <=5 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-200);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-350);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-500);
-    }
-    for(int i = 0 ; i <=30 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-650);
-    }*/
 
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
         addObject(new Stone(),71,854);
+        addObject(new Stone(),393,-634);
+        addObject(new Stone(),529,-634);
+        addObject(new Stone(),663,-634);
+        addObject(new Stone(),799,-634);
         addObject(new Stone(),324,417);
         addObject(new Stone(),452,417);
         addObject(new Stone(),68,267);
@@ -120,14 +80,13 @@ public class Level4 extends Level
         addObject(new Cactus(),688,3);
         addObject(new Plant(),144,-212);
         addObject(new Cactus(),392,-203);
-
         addObject(new Cactus(),150,-407);
         addObject(new Plant(),1025,-535);
         addObject(new Cactus(),225,93);
         addObject(new Plant(),11,1325);
         addObject(new Security(),289,350);
-        addObject(new Business(),562,-198);
-        addObject(new Business(),25,203);
+        addObject(new Security(),562,-198);
+        addObject(new Security(),25,203);
         addObject(new Stone(),68,568);
         List<Stone> stones = getObjects(Stone.class);
         for (int i = 0; i < stones.size(); i++){

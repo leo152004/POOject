@@ -2,9 +2,9 @@
 comment0.target=Special
 comment0.text=\n\ Write\ a\ description\ of\ class\ Special\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=Special()
+comment1.target=void\ Special()
 comment2.params=
-comment2.target=void\ act()
+comment2.target=void\ showLevel()
 comment3.params=
-comment3.target=void\ checkImage()
+comment3.target=void\ act()
 numComments=4

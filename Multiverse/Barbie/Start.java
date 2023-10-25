@@ -12,14 +12,12 @@ public class Start extends World
     {    
         super(1000, 800, 1); 
         startMenu();
+        Level.restartVidas();
+        Level.restartP();
     }
     
-    public void death(Actor a){}
-    
     public void startMenu(){
-        Icon icon = new Icon();
-        addObject(icon, getWidth()/2, getHeight()/3);
-        StartButton start = new StartButton();
-        addObject(start, getWidth()/2, getHeight()*3/4);
+        addObject(new Icon(), getWidth()/2, getHeight()/3);
+        addObject(new StartButton(), getWidth()/2, getHeight()*3/4);
     }
 }

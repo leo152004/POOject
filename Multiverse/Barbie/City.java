@@ -17,9 +17,7 @@ public class City extends World
         setPaintOrder(Barbie.class, Ken.class, Brick.class, Build.class);
     }
     
-    public void death(Actor a){}
-        
-    public void worldBuilder(){
+    private void worldBuilder(){
         addObject(new Barbie(), getWidth()*2/3, 600);
         addObject(new Ken(), getWidth()/3, 600);
         addObject(new Build(), 600, 223);

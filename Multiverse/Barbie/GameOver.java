@@ -6,14 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GameOver extends Actor
+public class GameOver extends World
 {
-    private GreenfootImage endGame;
-    
-    public GameOver(){
-        endGame = getImage();
-        endGame.setTransparency(0);
-        for(int i = 1; i < 256; i++)
-            endGame.setTransparency(i);
+    public GameOver()
+    {    
+        super(1200, 800, 1); 
+        Greenfoot.stop();
     }
 }

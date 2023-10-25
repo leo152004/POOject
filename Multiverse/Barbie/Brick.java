@@ -9,7 +9,4 @@ import java.util.*;
  */
 public class Brick extends Actor
 {
-    GreenfootImage brick = getImage();    
-    public void act(){
-    }
 }

@@ -8,15 +8,13 @@ import java.util.*;
  */
 public class Players extends Gravity
 {
-    public boolean jumping; //define se esta a saltar
+    private boolean jumping; //define se esta a saltar
     private boolean flip; //define se a imagem esta invertida ou nao
     private int jumpHeight;  //a altura que o player pode saltar
     private int flipCounter; // contador para mudar a imagem
     private int imageFliped; //qual a imagem a ser usada
     private boolean atGround;
-    City city;
-    World level;
-    World theLevel;
+    private World theLevel;
 
     public void move(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(Greenfoot.isKeyDown(right)){
@@ -54,7 +52,10 @@ public class Players extends Gravity
             flipCounter = 0;
         }
         flipCounter++;
-
+        flipImage(base, walk1, walk2, left, right);
+    }
+    
+    private void flipImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, String left, String right){
         if(Greenfoot.isKeyDown(left)){
             if(!flip){
                 base.mirrorHorizontally();
@@ -74,55 +75,67 @@ public class Players extends Gravity
     }
 
     public void jump(String up){
-        if(Greenfoot.isKeyDown(up) && falling == false && jumping == false){
+        if(Greenfoot.isKeyDown(up) && getFalling() == false && jumping == false){
             jumping = true;
             jumpHeight = 20;
             setLocation(getX(), getY()-jumpHeight);
         }
-        else if (jumping == true && falling == false){
+        else if (jumping == true && getFalling() == false){
             jumpHeight--;
             setLocation(getX(), getY()-jumpHeight);
         }
         if (jumping == true && jumpHeight <= 0){
             jumping = false;
-            falling = true;
+            setFalling(true);
         }
     }
-
-    public void enterLevel(String down){
-        if (Greenfoot.isKeyDown(down) && (getWorld() instanceof City) && (getX() >= 550 && getX() <= 650)){
-            Greenfoot.setWorld(new Level0());
-        }
+    
+    public boolean getJumping(){
+        return jumping;
     }
 
     public void isDead(){
-        if(isTouching(Business.class) || isTouching(Oppenheimer.class) || isTouching(Security.class) || getY() >= 799){
-          World theLevel = getWorld();
-            //Vidas vida = getWorld().getObjects(Vidas.class).get(0);
-           ((Level0)theLevel).death(this);
-         
-            //vida.checkLife();
+        if(isTouching(Oppenheimer.class) || isTouching(Security.class) || getY() >= 799){
+            World theLevel = getWorld();
+            if (theLevel instanceof Level0)
+                ((Level0)theLevel).death(this);
+            if (theLevel instanceof Level1)
+                ((Level1)theLevel).death(this);
+            if (theLevel instanceof Level2)
+                ((Level2)theLevel).death(this);
+            if (theLevel instanceof Level3)
+                ((Level3)theLevel).death(this);
+            if (theLevel instanceof Level4)
+                ((Level4)theLevel).death(this);
         }
     }
 
     public void youWon(){
         if(isTouching(Special.class)){
             getWorld().addObject(new NextLevel(), 600, 400);
-            Greenfoot.delay(100);
+            Level level = getWorldOfType(Level.class);
+            addPoints(level);
+            getWorld().showText("" + level.getPontos(), 825, 292);
+            Greenfoot.delay(200);
             NextLevel next = getWorld().getObjects(NextLevel.class).get(0);
             getWorld().removeObject(next);
-            Level0 lev0 = getWorldOfType(Level0.class);
-            if (lev0 != null){
+            if (getWorld() instanceof Level0)
                 Greenfoot.setWorld(new Level1());
-            }
+            if (getWorld() instanceof Level1)
+                Greenfoot.setWorld(new Level2());
+            if (getWorld() instanceof Level2)
+                Greenfoot.setWorld(new Level3());
+            if (getWorld() instanceof Level3)
+                Greenfoot.setWorld(new Level4());
         }
+    }
+    
+    private void addPoints(Level level){
+        level.addPoints();
     }
 
     public void outTheGround(){
         List<Ground> platforms = getIntersectingObjects(Ground.class);
-        /*if (!platforms.isEmpty()){
-        setLocation(getX(), platforms.get(0).getY()-getImage().getHeight()/2);
-        }*/
         if(!platforms.isEmpty() && platforms.get(0).getY() < getY()+getImage().getHeight()/2 && platforms.get(0).getY() != platforms.get(0).getY()-getImage().getHeight()/2)
             setLocation(getX(), getY()-5);
     }

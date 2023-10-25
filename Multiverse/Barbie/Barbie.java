@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Barbie extends Players
 {
-    GreenfootImage barbie = getImage();
+    private GreenfootImage barbie = getImage();
     private GreenfootImage barbie1, barbie2, gif;
 
     public Barbie(){
@@ -22,22 +22,21 @@ public class Barbie extends Players
         move("right", "left", barbie, barbie1, barbie2);
         jump("up");
         atGroundConfirm();
-        if(!jumping)
+        if(!getJumping())
             gravity();
-        enterLevel("down");
         isDead();
         outTheGround();
         subindoNivel();
         youWon();
     }
-    
+
     private void atGroundConfirm(){
         List<Ground> platforms = getIntersectingObjects(Ground.class);
         if(!platforms.isEmpty() && platforms.get(0).getY() >= getY()+getImage().getHeight()/2)
             atGround();
     }
 
-    public void subindoNivel(){
+    private void subindoNivel(){
         World world = getWorldOfType(Level.class);
         if (world != null){
             descendo();

@@ -9,8 +9,8 @@ import java.util.*;
  */
 public class Build extends Actor
 {
-    GreenfootImage Build1 = getImage();
-    public GreenfootImage Build2, Build3;
+    private GreenfootImage Build1 = getImage();
+    private GreenfootImage Build2, Build3;
     private boolean construido;
     
     public Build() {
@@ -30,7 +30,7 @@ public class Build extends Actor
         }
     }
     
-    public void randomBuilding(){
+    private void randomBuilding(){
         int building = Greenfoot.getRandomNumber(100);
         if (building < 33){
             setImage(Build2);

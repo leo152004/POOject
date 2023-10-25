@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Vidas extends Actor
 {
-    Level level;
+    private Level level;
     private GreenfootImage coracao3, coracao2, coracao1;
 
     public Vidas()
@@ -17,15 +17,10 @@ public class Vidas extends Actor
         coracao2 = new GreenfootImage("2coraçoes.png");
         coracao1 = new GreenfootImage("1coraçao.png");
     }
-    
-    public void act()
-    {
-        
-    }
 
     public void checkLife(){
         level = getWorldOfType(Level.class);
-        int lifeStatus = level.vidas;
+        int lifeStatus = level.getAVida();
         GreenfootImage imagem = getImage();
         if (lifeStatus == 3 && imagem != coracao3){
             setImage(coracao3);

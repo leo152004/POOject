@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Ken extends Players
 {
-    GreenfootImage ken = getImage();
+    private GreenfootImage ken = getImage();
     private GreenfootImage ken1, ken2;
 
     public Ken(){
@@ -22,22 +22,21 @@ public class Ken extends Players
         move("d", "a", ken, ken1, ken2);
         jump("w");
         atGroundConfirm();
-        if(!jumping)
+        if(!getJumping())
             gravity();
-        enterLevel("s");
         isDead();
         outTheGround();
         subindoNivel();
         youWon();
     }
-    
+
     private void atGroundConfirm(){
         List<Ground> platforms = getIntersectingObjects(Ground.class);
         if(!platforms.isEmpty() && platforms.get(0).getY() >= getY())
             atGround();
     }
 
-    public void subindoNivel(){
+    private void subindoNivel(){
         World world = getWorldOfType(Level.class);
         if (world != null){
             descendo();

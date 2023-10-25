@@ -9,7 +9,8 @@ import java.util.*;
  */
 public class Level extends World
 {
-    public static int pontos, vidas;
+    private static int pontos, vidas;
+    private int time, contador;
 
     public Level()
     {    
@@ -17,19 +18,45 @@ public class Level extends World
         setPaintOrder(NextLevel.class, GameOver.class, Vidas.class, Barbie.class, Ken.class, Special.class, Stone.class, Plant.class, Cactus.class, Ground.class);
         vidas = 3;
         addObject(new Vidas(), 100, 50);
+        showText("Pontos: " + pontos, 600, 50);
     }
 
-    public void highDeath(Players player){
-        vidas--;
-        Vidas vida = getObjects(Vidas.class).get(0);
-        vida.checkLife();
+    public void setTime(int newTime){
+        time = newTime;
+    }
+
+    public void timer(){
+        if(contador == 60){
+            time--;
+            contador = 0;
+        }
+        contador++;
+        showText("" + time, 600, 80);
+    }
+
+    public int getPontos(){
+        return pontos;
+    }
+
+    public int getAVida(){
+        return vidas;
+    }
+
+    public void addPoints(){
+        pontos += time;
+    }
+
+    public void hyperDeath(Players player){
         for(int i = 0; i < 3; i++){
             player.getImage().setTransparency(0);
-            Greenfoot.delay(20);
+            Greenfoot.delay(10);
             player.getImage().setTransparency(255);
-            Greenfoot.delay(20);
+            Greenfoot.delay(10);
         }
         if(vidas > 0){
+            vidas--;
+            Vidas vida = getObjects(Vidas.class).get(0);
+            vida.checkLife();
             List<Stone> stones = getObjects(Stone.class);
             List<Ground> ground = getObjects(Ground.class);
             List<Plant> plants = getObjects(Plant.class);
@@ -40,27 +67,24 @@ public class Level extends World
             removeObjects(plants);
             removeObjects(cactus);
             removeObjects(enemies);
-           // removeObject(vida);
+            removeObject(getObjects(Special.class).get(0));
             Players ken = getObjects(Ken.class).get(0);
             Players barbie = getObjects(Barbie.class).get(0);
             ken.setLocation(200, 680);
             barbie.setLocation(400, 680);
         }
         if(vidas == 0){
-            GameOver over = new GameOver();
-            addObject(over, 600, 400);
-            Greenfoot.delay(5);
             restartP();
             restartVidas();
-            Greenfoot.stop();
+            Greenfoot.setWorld(new GameOver());
         }
     }
 
-    public void restartP(){
+    public static void restartP(){
         pontos = 0;
     }
 
-    public void restartVidas(){
+    public static void restartVidas(){
         vidas = 0;
     }
 }

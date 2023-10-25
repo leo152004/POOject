@@ -13,28 +13,31 @@ public class Level0 extends Level
     {    
         pisoDePedra();
         decoracao();
-        //levellayers();
-        
         prepare();
         addObject(new Barbie(),400, 680);
         addObject(new Ken(), 200, 680);
+        setTime(120);
+    }
+    
+    public void act(){
+        timer();
     }
 
-    public void pisoDePedra()
+    private void pisoDePedra()
     {
-        for(int i = 0; i < getWidth(); i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
+        for(int i = 0; i < getWidth(); i += 96){
             addObject(new Stone(), i, 747);
         }
     }
 
     public void death(Players player){;
-        highDeath(player);
+        hyperDeath(player);
         pisoDePedra();
         decoracao();
         prepare();
     }
 
-    public void decoracao(){
+    private void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);
         addObject(new Cactus(),getWidth()-100, 707);
         addObject(new Cactus(),getWidth()-1100, 707);
@@ -43,18 +46,8 @@ public class Level0 extends Level
         addObject(new Plant(),getWidth()-1000, 707);
     }
 
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
-        addObject(new Special(), 600, -675);
-        
-        /*if(vidas>=3)
-            addObject(new Vidas(), 100, 50);*/
-        
-        
         addObject(new Stone(),986,603);
         addObject(new Stone(),850,603);
         addObject(new Stone(),610,603);
@@ -89,6 +82,7 @@ public class Level0 extends Level
         addObject(new Stone(),529,-634);
         addObject(new Stone(),663,-634);
         addObject(new Stone(),799,-634);
+        addObject(new Special(), 600, -675);
         addObject(new Stone(),1049,-162);
         addObject(new Stone(),408,-376);
         addObject(new Stone(),153,-493);

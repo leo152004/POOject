@@ -11,43 +11,32 @@ public class Level1 extends Level
     public Level1()
     {     
         pisoDePedra();
-        setBackground("BackgroundLevel.png");
         decoracao();
-        //levellayers();
         prepare();
         addObject(new Barbie(),200, 707);
         addObject(new Ken(), 400, 707);
+        setTime(120);
     }
 
-    public void pisoDePedra()
+    public void act(){
+        timer();
+    }
+
+    private void pisoDePedra()
     {
         for(int i = 0; i < getWidth(); i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
             addObject(new Stone(), i, 747);
         }
     }
 
-    public void death(Players player){
-        vidas--;
-        Vidas vida = getObjects(Vidas.class).get(0);
-        vida.checkLife();
-        for(int i = 0; i < 3; i++){
-            player.getImage().setTransparency(0);
-            Greenfoot.delay(20);
-            player.getImage().setTransparency(255);
-            Greenfoot.delay(20);
-        }
-        if(vidas > 0){
-            Greenfoot.setWorld(new Level1());
-        }
-        if(vidas == 0){
-            GameOver over = new GameOver();
-            addObject(over, 600, 400);
-            Greenfoot.delay(2048);
-            removeObject(getObjects(GameOver.class).get(0));
-        }
+    public void death(Players player){;
+        hyperDeath(player);
+        pisoDePedra();
+        decoracao();
+        prepare();
     }
-    
-    public void decoracao(){
+
+    private void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);
         addObject(new Cactus(),getWidth()-100, 707);
         addObject(new Cactus(),getWidth()-1100, 707);
@@ -55,42 +44,15 @@ public class Level1 extends Level
         addObject(new Plant(),getWidth()-300, 707);
         addObject(new Plant(),getWidth()-1000, 707);
     }
-    /*public void levellayers(){
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),100);
-    }
-    for(int i = 0 ; i <=5 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),250);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),400);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),550);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-50);
-    }
-    for(int i = 0 ; i <=5 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-200);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-350);
-    }
-    for(int i = 0 ; i <=4 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-500);
-    }
-    for(int i = 0 ; i <=30 ; i++){
-    addObject(new Stone(), Greenfoot.getRandomNumber(1100),-650);
-    }*/
 
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
+        addObject(new Special(), 600, -675);
         addObject(new Stone(),305,574);
+        addObject(new Stone(),393,-634);
+        addObject(new Stone(),529,-634);
+        addObject(new Stone(),663,-634);
+        addObject(new Stone(),799,-634);
         addObject(new Stone(),439,546);
         addObject(new Stone(),575,519);
         addObject(new Stone(),711,488);
@@ -130,12 +92,10 @@ public class Level1 extends Level
         addObject(new Stone(),301,-350);
         addObject(new Stone(),188,-580);
         addObject(new Stone(),995,-620);
-        addObject(new Business(),914,-122);
-        addObject(new Business(),513,-26);
-
-        addObject(new Business(),257,1086);
-        
-        addObject(new Business(),988,359);
+        addObject(new Security(),914,-122);
+        addObject(new Security(),513,-26);
+        addObject(new Security(),257,1086);
+        addObject(new Security(),988,359);
         List<Stone> stones = getObjects(Stone.class);
         for (int i = 0; i < stones.size(); i++){
             int x = stones.get(i).getX();

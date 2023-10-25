@@ -8,30 +8,41 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Security extends Enemies
 {
-    
-    private GreenfootImage security1, security2;
-    public boolean flip; //define se a imagem esta invertida ou nao
-    public int flipCounter; // contador para mudar a imagem
-    public int imageFliped; //qual a imagem a ser usado
-    public int direction = 1;
-    GreenfootImage security = getImage();
+    private GreenfootImage enemy, enemy1, enemy2;
+    private boolean flip; //define se a imagem esta invertida ou nao
+    private int flipCounter; // contador para mudar a imagem
+    private int imageFliped; //qual a imagem a ser usado
+    private int direction = 1;
     public Security(){
-        security1 = new GreenfootImage("secure1.png");
-        security2 = new GreenfootImage("secure2.png");
+        style();    }
+
+    private void style(){
+        if(Greenfoot.getRandomNumber(2) == 0){
+            enemy = getImage();
+            enemy1 = new GreenfootImage("secure1.png");
+            enemy2 = new GreenfootImage("secure2.png");
+        } else{
+            enemy = new GreenfootImage("business.png");
+            enemy1 = new GreenfootImage("business1.png");
+            enemy2 = new GreenfootImage("business2.png");
+        }
     }
+
     public void act()
     {
-        moveImage(security,security1,security2);
+        moveImage(enemy,enemy1,enemy2);
         move();
         gravity();
         atGround();
     }
+
     private void move(){
         if ((direction == 1 && isTouching(Cactus.class)) || (direction == -1 && isTouching(Plant.class))) 
             direction = -direction;
         move(direction);
     }
-    public void moveImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
+
+    private void moveImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(flipCounter == 10){
             if(imageFliped == 0){
                 setImage(walk1);
@@ -49,14 +60,17 @@ public class Security extends Enemies
             flipCounter = 0;
         }
         flipCounter++;
-        
+        flipImage(base, walk1, walk2);
+    }
+    
+    private void flipImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(isTouching(Cactus.class)){
             if(!flip){
                 base.mirrorHorizontally();
                 walk1.mirrorHorizontally();
                 walk2.mirrorHorizontally();
                 flip = true;
-                
+
             }
         }
         if(isTouching(Plant.class)){
@@ -65,7 +79,7 @@ public class Security extends Enemies
                 walk1.mirrorHorizontally();
                 walk2.mirrorHorizontally();
                 flip = false;
-                
+
             }
         }
     }
