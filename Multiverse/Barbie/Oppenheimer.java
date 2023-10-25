@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Oppenheimer here.
  * 
@@ -10,10 +10,9 @@ public class Oppenheimer extends Enemies
 {
     private GreenfootImage base, walk1, walk2;
     private int flipCounter, imageFliped;
-    private boolean flip;
+    private boolean flip, reconstructed;
 
     public Oppenheimer(){
-        getWorld().addObject(new Hi(), getX()-50, getY()-50);
         base = getImage();
         walk1 = new GreenfootImage("oppenheimer1.png");
         walk2 = new GreenfootImage("oppenheimer2.png");        
@@ -21,16 +20,26 @@ public class Oppenheimer extends Enemies
 
     public void act()
     {
+        reConstructor();
         gravity();
         atGround();
         run();
+        if(Greenfoot.isKeyDown("y"))
+            getWorld().showText(""+getY(), 900, 50);
+    }
+
+    private void reConstructor(){
+        if(!reconstructed){
+            getWorld().addObject(new Hi(), getX()-50, getY()-50);
+            reconstructed = true;
+        }
     }
 
     private void run(){
-        Players near = getObjectsInRange(300, Players.class).get(0);
+        List<Players> near = getObjectsInRange(300, Players.class);
         if (near != null)
             runAway();
-        if (near == null)
+        if (near == null && flip)
             turnAround();
     }
 

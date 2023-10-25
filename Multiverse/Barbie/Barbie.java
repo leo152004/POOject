@@ -20,8 +20,8 @@ public class Barbie extends Players
     public void act()
     {
         move("right", "left", barbie, barbie1, barbie2);
-        jump("up");
         atGroundConfirm();
+        jump("up");
         if(!getJumping())
             gravity();
         isDead();

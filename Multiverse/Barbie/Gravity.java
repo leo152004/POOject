@@ -31,7 +31,7 @@ public class Gravity extends Actor
 
     public void descendo(){
         if (desceu < 1200){
-                setLocation(getX(), getY()+1);
+                setLocation(getX(), getY()+2);
                 desceu++;
         }
     }

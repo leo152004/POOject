@@ -50,12 +50,7 @@ public class Level4 extends Level
 
     private void prepare()
     {
-        addObject(new Special(), 600, -675);
         addObject(new Stone(),71,854);
-        addObject(new Stone(),393,-634);
-        addObject(new Stone(),529,-634);
-        addObject(new Stone(),663,-634);
-        addObject(new Stone(),799,-634);
         addObject(new Stone(),324,417);
         addObject(new Stone(),452,417);
         addObject(new Stone(),68,267);

@@ -20,8 +20,8 @@ public class Ken extends Players
     public void act()
     {
         move("d", "a", ken, ken1, ken2);
-        jump("w");
         atGroundConfirm();
+        jump("w");
         if(!getJumping())
             gravity();
         isDead();

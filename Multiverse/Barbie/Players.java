@@ -95,7 +95,7 @@ public class Players extends Gravity
     }
 
     public void isDead(){
-        if(isTouching(Oppenheimer.class) || isTouching(Security.class) || getY() >= 799){
+        if(isTouching(Security.class) || getY() >= 799){
             World theLevel = getWorld();
             if (theLevel instanceof Level0)
                 ((Level0)theLevel).death(this);

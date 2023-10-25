@@ -17,6 +17,8 @@ public class Level0 extends Level
         addObject(new Barbie(),400, 680);
         addObject(new Ken(), 200, 680);
         setTime(120);
+        jukebox("stop", "entrance");
+        jukebox("start", "entrance");
     }
     
     public void act(){

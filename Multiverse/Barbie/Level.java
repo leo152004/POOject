@@ -11,14 +11,31 @@ public class Level extends World
 {
     private static int pontos, vidas;
     private int time, contador;
+    private GreenfootSound fundo1, fundo2;
 
     public Level()
     {    
         super(1200, 800, 1, false);
         setPaintOrder(NextLevel.class, GameOver.class, Vidas.class, Barbie.class, Ken.class, Special.class, Stone.class, Plant.class, Cactus.class, Ground.class);
-        vidas = 3;
         addObject(new Vidas(), 100, 50);
+        fundo1 = new GreenfootSound("fundo1.mp3");
+        fundo2 = new GreenfootSound("Undertale_menu.mp3");
         showText("Pontos: " + pontos, 600, 50);
+    }
+
+    public void jukebox(String state, String music){
+        if(state == "start"){
+            if(music == "entrance")
+                fundo2.playLoop();
+            if(music == "normal")
+                fundo1.playLoop();
+        }
+        if(state == "stop"){
+            if(music == "entrance")
+                fundo2.stop();
+            if(music == "normal")
+                fundo1.stop();
+        }
     }
 
     public void setTime(int newTime){
@@ -65,13 +82,16 @@ public class Level extends World
             removeObjects(plants);
             removeObjects(cactus);
             removeObjects(enemies);
-            removeObject(getObjects(Special.class).get(0));
+            if(!last)
+                removeObject(getObjects(Special.class).get(0));
             Players ken = getObjects(Ken.class).get(0);
             Players barbie = getObjects(Barbie.class).get(0);
             ken.setLocation(200, 680);
             barbie.setLocation(400, 680);
         }
         if(vidas == 0){
+            fundo1.stop();
+            fundo2.stop();
             restartP();
             restartVidas();
             if (!last)
@@ -86,6 +106,6 @@ public class Level extends World
     }
 
     public static void restartVidas(){
-        vidas = 0;
+        vidas = 3;
     }
 }
