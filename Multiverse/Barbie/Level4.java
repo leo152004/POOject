@@ -10,12 +10,9 @@ public class Level4 extends Level
 {
     public Level4()
     {    
-        pisoDePedra();
+        super(4, "normal");
         decoracao();
         prepare();
-        addObject(new Barbie(),200, 707);
-        addObject(new Ken(), 400, 707);
-        setTime(120);
     }
     
     public void act(){
@@ -27,16 +24,6 @@ public class Level4 extends Level
         pisoDePedra();
         decoracao();
         prepare();
-    }
-
-    private void pisoDePedra()
-    {
-        for(int i = 0; i < getWidth(); i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
-            addObject(new Stone(), i, 747);
-            addObject(new Stone(), i, 770);
-            addObject(new Stone(), i, 790);
-            addObject(new Stone(), i, 800);
-        }
     }
 
     private void decoracao(){

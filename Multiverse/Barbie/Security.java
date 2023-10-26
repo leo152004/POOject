@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Security extends Enemies
 {
     private GreenfootImage enemy, enemy1, enemy2;
-    private boolean flip; //define se a imagem esta invertida ou nao
     private int flipCounter; // contador para mudar a imagem
     private int imageFliped; //qual a imagem a ser usado
     private int direction;
@@ -33,69 +32,14 @@ public class Security extends Enemies
     public void act()
     {
         moveImage(enemy,enemy1,enemy2);
-        move();
+        move(direction);
         gravity();
         atGround();
     }
-
-    private void move(){
+    
+    public void move(){
         if ((direction == 1 && isTouching(Cactus.class)) || (direction == -1 && isTouching(Plant.class)) || isAtEdge()) 
             direction = -direction;
-        move(direction);
-    }
-
-    private void moveImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
-        if(flipCounter == 10){
-            if(imageFliped == 0){
-                setImage(walk1);
-                imageFliped = 1;
-            } else if (imageFliped == 1){
-                setImage(base);
-                imageFliped = 2;
-            }else if (imageFliped == 2){
-                setImage(walk2);
-                imageFliped = 3;
-            }else{
-                setImage(base);
-                imageFliped = 0;
-            }
-            flipCounter = 0;
-        }
-        flipCounter++;
-        flipImage(base, walk1, walk2);
-    }
-    
-    private void flipImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
-        if(isTouching(Cactus.class)){
-            if(!flip){
-                base.mirrorHorizontally();
-                walk1.mirrorHorizontally();
-                walk2.mirrorHorizontally();
-                flip = true;
-            }
-        }
-        if(isTouching(Plant.class)){
-            if(flip){
-                base.mirrorHorizontally();
-                walk1.mirrorHorizontally();
-                walk2.mirrorHorizontally();
-                flip = false;
-
-            }
-        }
-        if(isAtEdge()){
-            if(!flip){
-                base.mirrorHorizontally();
-                walk1.mirrorHorizontally();
-                walk2.mirrorHorizontally();
-                flip = true;
-            }
-            if(flip){
-                base.mirrorHorizontally();
-                walk1.mirrorHorizontally();
-                walk2.mirrorHorizontally();
-                flip = false;
-            }
-        }
+        move();
     }
 }

@@ -11,25 +11,13 @@ public class Level0 extends Level
 {
     public Level0()
     {    
-        pisoDePedra();
+        super(0, "entrance");
         decoracao();
         prepare();
-        addObject(new Barbie(),400, 680);
-        addObject(new Ken(), 200, 680);
-        setTime(120);
-        jukebox("stop", "entrance");
-        jukebox("start", "entrance");
     }
     
     public void act(){
         timer();
-    }
-
-    private void pisoDePedra()
-    {
-        for(int i = 0; i < getWidth(); i += 96){
-            addObject(new Stone(), i, 747);
-        }
     }
 
     public void death(Players player){;

@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+                    import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
  * Write a description of class Players here.
@@ -13,8 +13,21 @@ public class Players extends Gravity
     private int jumpHeight;  //a altura que o player pode saltar
     private int flipCounter; // contador para mudar a imagem
     private int imageFliped; //qual a imagem a ser usada
-    private boolean atGround;
     private World theLevel;
+
+    public void movementManager(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, String up){
+        move(right, left, base, walk1, walk2);
+        atGroundConfirm();
+        jump(up);
+        atGround();
+        if(!getJumping())
+            gravity();
+        isDead();
+        subindoNivel();
+        youWon();
+        theEnd();
+        dontGoUp();
+    }
 
     public void move(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(Greenfoot.isKeyDown(right)){
@@ -84,6 +97,15 @@ public class Players extends Gravity
             jumpHeight--;
             setLocation(getX(), getY()-jumpHeight);
         }
+        jumpStop();
+    }
+
+    public void dontGoUp(){
+        if(isTouching(Stone.class))
+            jumpStop();
+    }
+
+    private void jumpStop(){
         if (jumping == true && jumpHeight <= 0){
             jumping = false;
             setFalling(true);
@@ -107,8 +129,10 @@ public class Players extends Gravity
                 ((Level3)theLevel).death(this);
             if (theLevel instanceof Level4)
                 ((Level4)theLevel).death(this);
-        }
+        } 
     }
+    
+    
 
     public void youWon(){
         if(isTouching(Special.class)){
@@ -142,9 +166,10 @@ public class Players extends Gravity
     }
 
     public void atGroundConfirm(){
-        List<Ground> platforms = getIntersectingObjects(Ground.class);
-        if(!platforms.isEmpty() && platforms.get(0).getY() >= getY()+getImage().getHeight()/2)
-            atGround();
+        List<Ground> platforms = getObjectsInRange(getImage().getHeight()/2 + 5, Ground.class);
+        if(!platforms.isEmpty() && !(platforms.get(0).getY() == getY())){
+            setLocation(getX(), getY()-5);
+        }
     }
 
     public void theEnd(){
@@ -154,11 +179,5 @@ public class Players extends Gravity
 
     private void addPoints(Level level){
         level.addPoints();
-    }
-
-    public void outTheGround(){
-        List<Ground> platforms = getIntersectingObjects(Ground.class);
-        if(!platforms.isEmpty() && platforms.get(0).getY() < getY()+getImage().getHeight()/2 && platforms.get(0).getY() != platforms.get(0).getY()-getImage().getHeight()/2)
-            setLocation(getX(), getY()-5);
     }
 }

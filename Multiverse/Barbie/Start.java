@@ -8,12 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Start extends World
 {
+    private GreenfootSound menuMusic;
+    
     public Start()
     {    
         super(1000, 800, 1); 
         startMenu();
         Level.restartVidas();
         Level.restartP();
+        menuMusic = new GreenfootSound("barbiemenu.mp3");
+        menuMusic.playLoop();
     }
     
     public void startMenu(){

@@ -10,23 +10,13 @@ public class Level3 extends Level
 {
     public Level3()
     {    
-        pisoDePedra();
+        super(3, "normal");
         decoracao();
         prepare();
-        addObject(new Barbie(),200, 707);
-        addObject(new Ken(), 400, 707);
-        setTime(120);
     }
     
     public void act(){
         timer();
-    }
-    
-    private void pisoDePedra()
-    {
-        for(int i = 0; i < getWidth(); i += 96){ //fazer addObject em vez do setLocation no MovingWorld, e usar um bollean para ter a certeza
-            addObject(new Stone(), i, 747);
-        }
     }
 
     public void death(Players player){;

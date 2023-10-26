@@ -8,13 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EndScreen extends World
 {
-
-    /**
-     * Constructor for objects of class EndScreen.
-     * 
-     */
+    private GreenfootSound endGame;
+    
     public EndScreen()
     {    
         super(1200, 800, 1); 
+        endGame = new GreenfootSound("barbie.mp3");
+        endGame.play();
     }
 }

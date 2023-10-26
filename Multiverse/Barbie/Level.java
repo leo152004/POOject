@@ -21,8 +21,34 @@ public class Level extends World
         fundo1 = new GreenfootSound("fundo1.mp3");
         fundo2 = new GreenfootSound("Undertale_menu.mp3");
         showText("Pontos: " + pontos, 600, 50);
+        pisoDePedra();
     }
-
+    
+    public Level(int level, String music)
+    {    
+        super(1200, 800, 1, false);
+        setPaintOrder(NextLevel.class, GameOver.class, Vidas.class, Barbie.class, Ken.class, Special.class, Stone.class, Plant.class, Cactus.class, Ground.class);
+        addObject(new Vidas(), 100, 50);
+        fundo1 = new GreenfootSound("fundo1.mp3");
+        fundo2 = new GreenfootSound("Undertale_menu.mp3");
+        showText("Pontos: " + pontos, 600, 50);
+        showText("Nivel " + level, 600, 50);
+        addObject(new Barbie(),300, 680);
+        addObject(new Ken(), 200, 680);
+        setTime(120);
+        jukebox("stop", "entrance");
+        jukebox("stop", "normal");
+        jukebox("start", music);
+        pisoDePedra();
+    }
+    
+    public void pisoDePedra()
+    {
+        for(int i = 0; i < getWidth(); i += 96){
+            addObject(new Stone(), i, 747);
+        }
+    }
+    
     public void jukebox(String state, String music){
         if(state == "start"){
             if(music == "entrance")
@@ -87,7 +113,7 @@ public class Level extends World
             Players ken = getObjects(Ken.class).get(0);
             Players barbie = getObjects(Barbie.class).get(0);
             ken.setLocation(200, 680);
-            barbie.setLocation(400, 680);
+            barbie.setLocation(300, 680);
         }
         if(vidas == 0){
             fundo1.stop();
