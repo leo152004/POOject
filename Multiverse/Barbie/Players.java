@@ -1,4 +1,4 @@
-                    import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
  * Write a description of class Players here.
@@ -131,31 +131,31 @@ public class Players extends Gravity
                 ((Level4)theLevel).death(this);
         } 
     }
-    
-    
 
     public void youWon(){
-        if(isTouching(Special.class)){
-            getWorld().addObject(new NextLevel(), 600, 400);
-            Level level = getWorldOfType(Level.class);
-            addPoints(level);
-            getWorld().showText("" + level.getPontos(), 825, 292);
-            Greenfoot.delay(200);
-            NextLevel next = getWorld().getObjects(NextLevel.class).get(0);
-            getWorld().removeObject(next);
-            if (getWorld() instanceof Level0){
-                level.jukebox("stop", "entrance");
-                Greenfoot.setWorld(new Level1());
+        List<Special> specials = getWorld().getObjects(Special.class);
+        if(!specials.isEmpty() && specials.get(0).getY() >= 200)
+            if(isTouching(Special.class)){
+                getWorld().addObject(new NextLevel(), 600, 400);
+                Level level = getWorldOfType(Level.class);
+                addPoints(level);
+                getWorld().showText("" + level.getPontos(), 825, 292);
+                Greenfoot.delay(200);
+                NextLevel next = getWorld().getObjects(NextLevel.class).get(0);
+                getWorld().removeObject(next);
+                if (getWorld() instanceof Level0){
+                    level.jukebox("stop", "entrance");
+                    Greenfoot.setWorld(new Level1());
+                }
+                if (getWorld() instanceof Level1){
+                    level.jukebox("stop", "normal");
+                    Greenfoot.setWorld(new Level2());
+                }
+                if (getWorld() instanceof Level2)
+                    Greenfoot.setWorld(new Level3());
+                if (getWorld() instanceof Level3)
+                    Greenfoot.setWorld(new Level4());
             }
-            if (getWorld() instanceof Level1){
-                level.jukebox("stop", "normal");
-                Greenfoot.setWorld(new Level2());
-            }
-            if (getWorld() instanceof Level2)
-                Greenfoot.setWorld(new Level3());
-            if (getWorld() instanceof Level3)
-                Greenfoot.setWorld(new Level4());
-        }
     }
 
     public void subindoNivel(){

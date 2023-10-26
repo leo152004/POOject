@@ -50,11 +50,5 @@ public class Enemies extends Gravity
 
             }
         }
-        if(isAtEdge()){
-            base.mirrorHorizontally();
-            walk1.mirrorHorizontally();
-            walk2.mirrorHorizontally();
-            flip = true;
-        }
     }
 }

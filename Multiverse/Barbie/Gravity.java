@@ -49,6 +49,9 @@ public class Gravity extends Actor
                 desceu++;
             }
         }
+        else if ( getWorld() instanceof LevelTutorial){
+            
+        }
         else{
             if (desceu < 1200){
                 setLocation(getX(), getY()+downSpeed);

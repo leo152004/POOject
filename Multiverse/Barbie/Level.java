@@ -21,7 +21,12 @@ public class Level extends World
         fundo1 = new GreenfootSound("fundo1.mp3");
         fundo2 = new GreenfootSound("Undertale_menu.mp3");
         showText("Pontos: " + pontos, 600, 50);
+        addObject(new Barbie(),300, 680);
+        addObject(new Ken(), 200, 680);
         pisoDePedra();
+        for(int i = 0; i < getWidth(); i += 96){
+            addObject(new Ground(), i, 747);
+        }
     }
     
     public Level(int level, String music)
