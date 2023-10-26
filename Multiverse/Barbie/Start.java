@@ -20,6 +20,10 @@ public class Start extends World
         menuMusic.playLoop();
     }
     
+    public GreenfootSound getMenuMusic(){
+        return menuMusic;
+    }
+    
     public void startMenu(){
         addObject(new Icon(), getWidth()/2, getHeight()/3);
         addObject(new StartButton(), getWidth()/2, getHeight()*3/4);

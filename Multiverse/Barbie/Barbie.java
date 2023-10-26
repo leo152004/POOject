@@ -19,6 +19,6 @@ public class Barbie extends Players
 
     public void act()
     {
-        movementManager("right", "left", barbie, barbie1, barbie2, "up");
+        movementManager("Barbie", barbie, barbie1, barbie2);
     }
 }

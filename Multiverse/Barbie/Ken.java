@@ -19,6 +19,6 @@ public class Ken extends Players
 
     public void act()
     {
-        movementManager("d", "a", ken, ken1, ken2, "w");
+        movementManager("Ken", ken, ken1, ken2);
     }
 }

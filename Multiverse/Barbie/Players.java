@@ -8,14 +8,24 @@ import java.util.*;
  */
 public class Players extends Gravity
 {
-    private boolean jumping; //define se esta a saltar
-    private boolean flip; //define se a imagem esta invertida ou nao
-    private int jumpHeight;  //a altura que o player pode saltar
-    private int flipCounter; // contador para mudar a imagem
-    private int imageFliped; //qual a imagem a ser usada
+    private boolean jumping, flip;
+    private int jumpHeight, flipCounter, imageFliped;
     private World theLevel;
 
-    public void movementManager(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, String up){
+    /**
+     * Uma funcao que tem o objetivo de chamar todas as funcoes dos players dependendo de quem e, dando as indicacoes corretas de teclas
+     */
+    public void movementManager(String player, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
+        String right, left, up;
+        if(player == "Barbie"){
+            right = "right";
+            left = "left";
+            up = "up";
+        } else {
+            right = "d";
+            left = "a";
+            up = "w";
+        }
         move(right, left, base, walk1, walk2);
         atGroundConfirm();
         jump(up);
@@ -23,30 +33,32 @@ public class Players extends Gravity
         if(!getJumping())
             gravity();
         isDead();
-        subindoNivel();
+        descendo();
         youWon();
         theEnd();
-        dontGoUp();
     }
 
+    /**
+     * funcao que permite o movimento dos players se a tecla para este estiver a ser precionada
+     */
     public void move(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(Greenfoot.isKeyDown(right)){
             move(5);
-        }
-        if(Greenfoot.isKeyDown(right))
             moveImage(left, right, base, walk1, walk2);
+        }
         if(Greenfoot.isKeyDown(left)){
             move(-5);
-        }
-        if(Greenfoot.isKeyDown(left))
             moveImage(left, right, base, walk1, walk2);
-
+        }
         if(!(Greenfoot.isKeyDown(left) || Greenfoot.isKeyDown(right))){
             setImage(base);
             imageFliped = 0;
         }
     }
 
+    /**
+     * funcao que cria a animacao durante o movimento dos players ao fazer um ciclo por estas enquanto o player ainda estiver a andar
+     */
     public void moveImage(String left, String right, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(flipCounter == 10){
             if(imageFliped == 0){
@@ -68,6 +80,9 @@ public class Players extends Gravity
         flipImage(base, walk1, walk2, left, right);
     }
 
+    /**
+     * funcao que vira a imagem do player e as respetivas imagens para que este ande dependendo da direcao que andou por ultimo
+     */
     private void flipImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, String left, String right){
         if(Greenfoot.isKeyDown(left)){
             if(!flip){
@@ -87,6 +102,9 @@ public class Players extends Gravity
         }
     }
 
+    /**
+     * funcao que define o salto dos players ao dar uma velocidade inicial que diminui com o tempo, eventualmente sendo 0 e acabando o salto deixando a gravidade tomar conta
+     */
     public void jump(String up){
         if(Greenfoot.isKeyDown(up) && getFalling() == false && jumping == false){
             jumping = true;
@@ -97,25 +115,15 @@ public class Players extends Gravity
             jumpHeight--;
             setLocation(getX(), getY()-jumpHeight);
         }
-        jumpStop();
-    }
-
-    public void dontGoUp(){
-        if(isTouching(Stone.class))
-            jumpStop();
-    }
-
-    private void jumpStop(){
         if (jumping == true && jumpHeight <= 0){
             jumping = false;
             setFalling(true);
         }
     }
 
-    public boolean getJumping(){
-        return jumping;
-    }
-
+    /**
+     * funcao que verifica se o player esta a tocar em um dos enimidos do tipo seguranca, e se tiver, devera executar a funcao de morte do respetivo nivel em que se encontra
+     */
     public void isDead(){
         if(isTouching(Security.class) || getY() >= 799){
             World theLevel = getWorld();
@@ -132,13 +140,17 @@ public class Players extends Gravity
         } 
     }
 
+    /**
+     * funcao que ira permitir a mudanca para o proximo nivel do jogo quando algum dos players tocar no objeto de classe "Special" desde que a posicao no eixo dos Y deste seja
+     * superior a 200 para impedir que os players possam passar de nivel sem estarem a espera disso e que apenas passem se for o proposito
+     */
     public void youWon(){
         List<Special> specials = getWorld().getObjects(Special.class);
         if(!specials.isEmpty() && specials.get(0).getY() >= 200)
             if(isTouching(Special.class)){
                 getWorld().addObject(new NextLevel(), 600, 400);
                 Level level = getWorldOfType(Level.class);
-                addPoints(level);
+                level.addPoints();
                 getWorld().showText("" + level.getPontos(), 825, 292);
                 Greenfoot.delay(200);
                 NextLevel next = getWorld().getObjects(NextLevel.class).get(0);
@@ -158,26 +170,25 @@ public class Players extends Gravity
             }
     }
 
-    public void subindoNivel(){
-        World world = getWorldOfType(Level.class);
-        if (world != null){
-            descendo();
-        }
-    }
-
+    /**
+     * uma pequena funcao com o opjetivo de impedir que o player fique a meio das plataformas ao puxa-lo para cima se este se encontrar a meio de uma
+     */
     public void atGroundConfirm(){
-        List<Ground> platforms = getObjectsInRange(getImage().getHeight()/2 + 5, Ground.class);
+        List<Ground> platforms = getObjectsInRange(getImage().getHeight()/2 + 4, Ground.class);
         if(!platforms.isEmpty() && !(platforms.get(0).getY() == getY())){
             setLocation(getX(), getY()-5);
         }
     }
 
+    /**
+     * A funcao que define se o jogo terminou ao confirmar se o player esta a tocar no enimigo "Oppenheimer"
+     */
     public void theEnd(){
         if(isTouching(Oppenheimer.class))
             Greenfoot.setWorld(new EndScreen());
     }
-
-    private void addPoints(Level level){
-        level.addPoints();
+    
+    public boolean getJumping(){
+        return jumping;
     }
 }
