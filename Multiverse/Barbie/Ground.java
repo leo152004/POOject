@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Ground here.
+ * um Objeto usado para que o player apenas conte como chao o topo das plataformas e nao todo o objeto da classe Stone
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Gonçalves - 2123522
  */
 public class Ground extends LevelObjects
 {

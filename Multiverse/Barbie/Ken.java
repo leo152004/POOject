@@ -2,10 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Ken here.
+ * A personagem principal Ken usada pelo player a esquerda do computador
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Gonçalves - 2123522
  */
 public class Ken extends Players
 {

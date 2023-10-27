@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Vidas here.
+ * Vidas dos players, quando chegam a 0 terminam o jogo
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Gonçalves - 2123522
  */
 public class Vidas extends Actor
 {
@@ -22,6 +21,9 @@ public class Vidas extends Actor
         checkLife();
     }
 
+    /**
+     * funçao que muda a imagem dependendo da quantidade de vidas atualmente
+     */
     public void checkLife(){
         level = getWorldOfType(Level.class);
         int lifeStatus = level.getAVida();

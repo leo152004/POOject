@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Ecra de vitoria que mostra um trofeu e os pontos finais
  * 
- * @Leandro
+ * @Leandro Gonçalves
  */
 public class EndScreen extends World
 {

@@ -1,19 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Tutorial2 here.
+ * Imagem que indica como passar para o nivel 0
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Gonçalves - 2123522
  */
 public class Tutorial2 extends Actor
 {
-    /**
-     * Act - do whatever the Tutorial2 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
-    }
 }

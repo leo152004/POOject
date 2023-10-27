@@ -1,12 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Icon here.
+ * Icon do jogo
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Gonçalves - 2123522
  */
 public class Icon extends Actor
 {
-    //Oi
+    //Hello
 }

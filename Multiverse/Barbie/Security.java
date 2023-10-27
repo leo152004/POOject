@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Security here.
+ * um enimigo comum no jogo que apenas anda numa area podendo descer de plataformas durante o jogo
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Francisco Adelino - 2167322
  */
 public class Security extends Enemies
 {
@@ -16,7 +15,10 @@ public class Security extends Enemies
         style();    
         direction = 1;
     }
-
+    
+    /**
+     * uma funçao que define se o enimigo vai ser um segurança ou um empresario
+     */
     private void style(){
         if(Greenfoot.getRandomNumber(2) == 0){
             enemy = getImage();
@@ -37,6 +39,9 @@ public class Security extends Enemies
         atGround();
     }
     
+    /**
+     * funçao que permite o movimento dentro de areas especificas com uma baixa velocidade
+     */
     public void moving(int speed){
         if ((direction == 1 && isTouching(Cactus.class)) || (direction == -1 && isTouching(Plant.class)) || isAtEdge()) 
             direction = -direction;

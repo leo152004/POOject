@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Ecra de Game Over no ultimo nivel, devido a este ser o nivel onde tem o Oppenheimer e ao perder neste nivel significa que ele foi capaz de usar a bomba
  * 
- * @Leandro Gonçalves 
+ * @Leandro Gonçalves -2123522
  */
 public class City extends World
 {

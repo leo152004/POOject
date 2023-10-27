@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class Oppenheimer here.
+ * Enimigo final do Jogo, apenas e preciso tocar nele para vencer
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Francisco Adelino - 2167322
  */
 public class Oppenheimer extends Enemies
 {
@@ -26,6 +25,9 @@ public class Oppenheimer extends Enemies
         moveImage(base,walk1,walk2);
     }
     
+    /**
+     * uma funçao que faz o Oppenheimer mover entro de uma area entre catos e plantas
+     */
     public void moving(int speed){
         if ((direction == 3 && isTouching(Cactus.class)) || (direction == -3 && isTouching(Plant.class)) || isAtEdge()) 
             direction = -direction;

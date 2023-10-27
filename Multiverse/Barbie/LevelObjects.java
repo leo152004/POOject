@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MovingWorld here.
+ * Apenas para categorizaçao destes objetos
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Gonçalves
  */
 public class LevelObjects extends Gravity
 {

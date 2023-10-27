@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class Players here.
+ * Contem todas as funçoes exclusivas aos players mas que se aplicam a ambos, estas funçoes incluem controlos e coisas como quando devem perder ou ganhar o jogo
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Gonçalves - 2123522
  */
 public class Players extends Gravity
 {
@@ -13,7 +12,7 @@ public class Players extends Gravity
     private World theLevel;
 
     /**
-     * Uma funcao que tem o objetivo de chamar todas as funcoes dos players dependendo de quem e, dando as indicacoes corretas de teclas
+     * Uma funçao que tem o objetivo de chamar todas as funcoes dos players dependendo de quem e, dando as indicacoes corretas de teclas
      */
     public void movementManager(String player, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         String right, left, up;
@@ -39,7 +38,7 @@ public class Players extends Gravity
     }
 
     /**
-     * funcao que permite o movimento dos players se a tecla para este estiver a ser precionada
+     * funçao que permite o movimento dos players se a tecla para este estiver a ser precionada
      */
     public void move(String right, String left, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(Greenfoot.isKeyDown(right)){
@@ -57,7 +56,7 @@ public class Players extends Gravity
     }
 
     /**
-     * funcao que cria a animacao durante o movimento dos players ao fazer um ciclo por estas enquanto o player ainda estiver a andar
+     * funçao que cria a animacao durante o movimento dos players ao fazer um ciclo por estas enquanto o player ainda estiver a andar
      */
     public void moveImage(String left, String right, GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2){
         if(flipCounter == 10){
@@ -81,7 +80,7 @@ public class Players extends Gravity
     }
 
     /**
-     * funcao que vira a imagem do player e as respetivas imagens para que este ande dependendo da direcao que andou por ultimo
+     * funçao que vira a imagem do player e as respetivas imagens para que este ande dependendo da direcao que andou por ultimo
      */
     private void flipImage(GreenfootImage base, GreenfootImage walk1, GreenfootImage walk2, String left, String right){
         if(Greenfoot.isKeyDown(left)){
@@ -103,7 +102,7 @@ public class Players extends Gravity
     }
 
     /**
-     * funcao que define o salto dos players ao dar uma velocidade inicial que diminui com o tempo, eventualmente sendo 0 e acabando o salto deixando a gravidade tomar conta
+     * funçao que define o salto dos players ao dar uma velocidade inicial que diminui com o tempo, eventualmente sendo 0 e acabando o salto deixando a gravidade tomar conta
      */
     public void jump(String up){
         if(Greenfoot.isKeyDown(up) && getFalling() == false && jumping == false){
@@ -122,7 +121,7 @@ public class Players extends Gravity
     }
 
     /**
-     * funcao que verifica se o player esta a tocar em um dos enimidos do tipo seguranca, e se tiver, devera executar a funcao de morte do respetivo nivel em que se encontra
+     * funçao que verifica se o player esta a tocar em um dos enimidos do tipo seguranca, e se tiver, devera executar a funçao de morte do respetivo nivel em que se encontra
      */
     public void isDead(){
         if(isTouching(Security.class) || getY() >= 799){
@@ -141,7 +140,7 @@ public class Players extends Gravity
     }
 
     /**
-     * funcao que ira permitir a mudanca para o proximo nivel do jogo quando algum dos players tocar no objeto de classe "Special" desde que a posicao no eixo dos Y deste seja
+     * funçao que ira permitir a mudanca para o proximo nivel do jogo quando algum dos players tocar no objeto de classe "Special" desde que a posicao no eixo dos Y deste seja
      * superior a 200 para impedir que os players possam passar de nivel sem estarem a espera disso e que apenas passem se for o proposito
      */
     public void youWon(){
@@ -171,7 +170,7 @@ public class Players extends Gravity
     }
 
     /**
-     * uma pequena funcao com o opjetivo de impedir que o player fique a meio das plataformas ao puxa-lo para cima se este se encontrar a meio de uma
+     * uma pequena funçao com o opjetivo de impedir que o player fique a meio das plataformas ao puxa-lo para cima se este se encontrar a meio de uma
      */
     public void atGroundConfirm(){
         List<Ground> platforms = getObjectsInRange(getImage().getHeight()/2 + 4, Ground.class);
@@ -181,7 +180,7 @@ public class Players extends Gravity
     }
 
     /**
-     * A funcao que define se o jogo terminou ao confirmar se o player esta a tocar no enimigo "Oppenheimer"
+     * A funçao que define se o jogo terminou ao confirmar se o player esta a tocar no enimigo "Oppenheimer"
      */
     public void theEnd(){
         if(isTouching(Oppenheimer.class))

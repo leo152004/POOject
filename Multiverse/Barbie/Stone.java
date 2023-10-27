@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Stone here.
+ * Textura usada para as plataformas que sao usadas para saltar e tambem usada para o chao
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Lucas Waddlle - 
  */
 public class Stone extends LevelObjects
 

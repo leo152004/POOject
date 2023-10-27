@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Cactus here.
+ * Um cacto para decoraçao
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Lucas Waddlle 
  */
 public class Cactus extends LevelObjects
 {
