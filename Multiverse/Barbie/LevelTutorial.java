@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LevelTutorial here.
+ * Nivel tutorial com os comandos para o jogo
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @LEandro Goncalves
  */
 public class LevelTutorial extends Level
 {

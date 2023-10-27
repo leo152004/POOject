@@ -7,6 +7,6 @@ comment2.params=
 comment2.target=void\ style()
 comment3.params=
 comment3.target=void\ act()
-comment4.params=direction
+comment4.params=speed
 comment4.target=void\ moving(int)
 numComments=5

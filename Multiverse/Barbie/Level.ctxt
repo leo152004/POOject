@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Level
-comment0.text=\n\ Write\ a\ description\ of\ class\ Level\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Nivel\ base\ usado\ na\ criacao\ de\ outros\ niveis\ e\ para\ coisas\ comuns\ em\ todos\ como\ pontos\ e\ vidas\n\ \n\ @Leandro\ Goncalves\n
 comment1.params=
 comment1.target=Level()
 comment10.params=player\ last

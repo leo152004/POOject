@@ -37,7 +37,7 @@ public class Security extends Enemies
         atGround();
     }
     
-    public void moving(int direction){
+    public void moving(int speed){
         if ((direction == 1 && isTouching(Cactus.class)) || (direction == -1 && isTouching(Plant.class)) || isAtEdge()) 
             direction = -direction;
         move(direction);

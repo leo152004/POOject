@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=City
-comment0.text=\n\ Write\ a\ description\ of\ class\ City\ here.\n\ \n\ @author\ Leandro\ Gon\u00E7alves\ \n\ @version\ 19/10/2023\n\ https\://wallpaperaccess.com/city-pixel-art\n
+comment0.text=\n\ Ecra\ de\ Game\ Over\ no\ ultimo\ nivel,\ devido\ a\ este\ ser\ o\ nivel\ onde\ tem\ o\ Oppenheimer\ e\ ao\ perder\ neste\ nivel\ significa\ que\ ele\ foi\ capaz\ de\ usar\ a\ bomba\n\ \n\ @Leandro\ Gon\u00E7alves\ \n
 comment1.params=
 comment1.target=City()
 numComments=2

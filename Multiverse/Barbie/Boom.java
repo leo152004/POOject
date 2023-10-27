@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Boom here.
+ * Imagem usada no ecra de Game Over do ultimo nivel
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Goncalves
  */
 public class Boom extends Actor
 {

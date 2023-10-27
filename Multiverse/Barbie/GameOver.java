@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameOver here.
+ * Ecra de perda nos niveis de 0-3 em que mostra a barbie a ser apanhada e a ser posta numa caixa de bonecas como no filme
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Lucas Waddlle
  */
 public class GameOver extends World
 {

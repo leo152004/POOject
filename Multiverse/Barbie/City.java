@@ -2,11 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class City here.
+ * Ecra de Game Over no ultimo nivel, devido a este ser o nivel onde tem o Oppenheimer e ao perder neste nivel significa que ele foi capaz de usar a bomba
  * 
- * @author Leandro Gonçalves 
- * @version 19/10/2023
- * https://wallpaperaccess.com/city-pixel-art
+ * @Leandro Gonçalves 
  */
 public class City extends World
 {

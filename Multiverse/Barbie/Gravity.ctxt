@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Gravity
-comment0.text=\n\ Write\ a\ description\ of\ class\ Gravity\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ controla\ funcoes\ relacionadas\ com\ o\ movimento\ em\ geral\ do\ mundo,\ como\ graivdade\ ou\ o\ ecra\ ir\ descendo\ automaticamente\n\ \n\ @Leandro\ Goncalves\n
 comment1.params=
 comment1.target=void\ atGround()
 comment2.params=

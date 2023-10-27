@@ -2,10 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Level here.
+ * Nivel base usado na criacao de outros niveis e para coisas comuns em todos como pontos e vidas
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Goncalves
  */
 public class Level extends World
 {

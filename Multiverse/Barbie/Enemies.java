@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Enemies here.
+ * Controla funcoes que sejam usadas tanto pelos segurancas como pelo Oppenheimer
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Francisco Adelino
  */
 public class Enemies extends Gravity
 {

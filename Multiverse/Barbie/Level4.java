@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class MyWorld here.
+ * Nivel 2 do jogo
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Francisco Adelino 
  */
 public class Level4 extends Level
 {
@@ -19,6 +18,9 @@ public class Level4 extends Level
         timer();
     }
 
+    /**
+     * controla o caso de perder uma vida reininciando o nivel
+     */
     public void death(Players player){;
         hyperDeath(player, true);
         pisoDePedra();
@@ -26,6 +28,9 @@ public class Level4 extends Level
         prepare();
     }
 
+    /**
+     * coloca decoracao no nivel como as plantas e cactos
+     */
     private void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);
         addObject(new Cactus(),getWidth()-100, 707);
@@ -35,6 +40,9 @@ public class Level4 extends Level
         addObject(new Plant(),getWidth()-1000, 707);
     }
 
+    /**
+     * cria as plataformas usadas pelos players, e o objeto "Special" que permite passar para o proximo nivel
+     */
     private void prepare()
     {
         addObject(new Stone(),71,854);

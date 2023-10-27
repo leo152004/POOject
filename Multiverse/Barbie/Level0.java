@@ -2,10 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class MyWorld here.
+ * Nivel 0 do jogo, nao contem enimigos e apenas serve para mostrar como vai ser os proximos niveis antes de ser preciso ter cuidado com os enimigos
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Francisco Adelino 
  */
 public class Level0 extends Level
 {
@@ -20,6 +19,9 @@ public class Level0 extends Level
         timer();
     }
 
+    /**
+     * controla o caso de perder uma vida reininciando o nivel
+     */
     public void death(Players player){;
         hyperDeath(player, false);
         pisoDePedra();
@@ -27,6 +29,9 @@ public class Level0 extends Level
         prepare();
     }
 
+    /**
+     * coloca decoracao no nivel como as plantas e cactos
+     */
     private void decoracao(){
         addObject(new Cactus(),getWidth()/2, 707);
         addObject(new Cactus(),getWidth()-100, 707);
@@ -34,8 +39,19 @@ public class Level0 extends Level
         addObject(new Plant(),getWidth()/3, 707);
         addObject(new Plant(),getWidth()-300, 707);
         addObject(new Plant(),getWidth()-1000, 707);
+        addObject(new Plant(),79,-74);
+        addObject(new Plant(),844,-357);
+        addObject(new Cactus(),448,-415);
+        addObject(new Cactus(),521,-676);
+        addObject(new Plant(),664,-684);
+        addObject(new Cactus(),991,43);
+        addObject(new Plant(),283,257);
+        addObject(new Cactus(),694,412);
     }
 
+    /**
+     * cria as plataformas usadas pelos players, e o objeto "Special" que permite passar para o proximo nivel
+     */
     private void prepare()
     {
         addObject(new Stone(),986,603);
@@ -80,14 +96,6 @@ public class Level0 extends Level
         addObject(new Stone(),938,-355);
         addObject(new Stone(),1129,-516);
         addObject(new Stone(),674,-479);
-        addObject(new Plant(),79,-74);
-        addObject(new Plant(),844,-357);
-        addObject(new Cactus(),448,-415);
-        addObject(new Cactus(),521,-676);
-        addObject(new Plant(),664,-684);
-        addObject(new Cactus(),991,43);
-        addObject(new Plant(),283,257);
-        addObject(new Cactus(),694,412);
         List<Stone> stones = getObjects(Stone.class);
         for (int i = 0; i < stones.size(); i++){
             int x = stones.get(i).getX();

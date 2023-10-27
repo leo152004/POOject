@@ -2,10 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Gravity here.
+ * controla funcoes relacionadas com o movimento em geral do mundo, como graivdade ou o ecra ir descendo automaticamente
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Leandro Goncalves
  */
 public class Gravity extends Actor
 {
