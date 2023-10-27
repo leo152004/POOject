@@ -10,7 +10,7 @@ public class Level extends World
 {
     private static int pontos, vidas;
     private int time, contador;
-    private GreenfootSound fundo1, fundo2, menu;
+    private GreenfootSound fundo1, fundo2;
 
     public Level()
     {    

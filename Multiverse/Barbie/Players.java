@@ -183,10 +183,13 @@ public class Players extends Gravity
      * A funçao que define se o jogo terminou ao confirmar se o player esta a tocar no enimigo "Oppenheimer"
      */
     public void theEnd(){
-        if(isTouching(Oppenheimer.class))
+        if(isTouching(Oppenheimer.class)){
+            Level theLevel = getWorldOfType(Level.class);
+            theLevel.jukebox("stop", "normal");
             Greenfoot.setWorld(new EndScreen());
+        }
     }
-    
+
     public boolean getJumping(){
         return jumping;
     }
