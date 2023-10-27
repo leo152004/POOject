@@ -13,7 +13,6 @@ public class GameOver extends World
     public GameOver()
     {
         super(1200, 800, 1); 
-        
         dead = new GreenfootSound("Undertale_fans.mp3");
         dead.play();
         Greenfoot.stop();

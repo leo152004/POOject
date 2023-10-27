@@ -52,7 +52,7 @@ public class Level4 extends Level
         addObject(new Stone(),643,-487);
         addObject(new Stone(),775,-487);
         addObject(new Stone(),1036,-488);
-        addObject(new Oppenheimer(),780,-545);
+        addObject(new Oppenheimer(),880,-545);
         addObject(new Stone(),209,-374);
         addObject(new Stone(),423,-447);
         addObject(new Stone(),614,-134);

@@ -15,20 +15,20 @@ public class Oppenheimer extends Enemies
         base = getImage();
         walk1 = new GreenfootImage("oppenheimer1.png");
         walk2 = new GreenfootImage("oppenheimer2.png"); 
-        direction = 5;
+        direction = 3;
     }
 
     public void act()
     {
         gravity();
         atGround();
-        move(direction);
+        moving(direction);
         moveImage(base,walk1,walk2);
     }
     
-    public void move(){
-        if ((direction == 5 && isTouching(Cactus.class)) || (direction == -5 && isTouching(Plant.class)) || isAtEdge()) 
+    public void moving(int speed){
+        if ((direction == 3 && isTouching(Cactus.class)) || (direction == -3 && isTouching(Plant.class)) || isAtEdge()) 
             direction = -direction;
-        move();
+        move(direction);
     }
 }

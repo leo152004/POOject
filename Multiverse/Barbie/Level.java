@@ -12,7 +12,6 @@ public class Level extends World
     private static int pontos, vidas;
     private int time, contador;
     private GreenfootSound fundo1, fundo2, menu;
-    private World start;
 
     public Level()
     {    
@@ -29,7 +28,7 @@ public class Level extends World
             addObject(new Ground(), i, 747);
         }
     }
-    
+
     public Level(int level, String music)
     {    
         super(1200, 800, 1, false);
@@ -47,14 +46,20 @@ public class Level extends World
         jukebox("start", music);
         pisoDePedra();
     }
-    
+
+    /**
+     * uma funcao que vai adicionar um chao de pedra no fundo do nivel
+     */
     public void pisoDePedra()
     {
         for(int i = 0; i < getWidth(); i += 96){
             addObject(new Stone(), i, 747);
         }
     }
-    
+
+    /**
+     * uma funcao que tem o objetivo de iniciar e parar musicas de fundo em comando
+     */
     public void jukebox(String state, String music){
         if(state == "start"){
             if(music == "entrance")
@@ -70,10 +75,9 @@ public class Level extends World
         }
     }
 
-    public void setTime(int newTime){
-        time = newTime;
-    }
-
+    /**
+     * um temporizador que aparece no topo do nivel que ser'a usado para os niveis
+     */
     public void timer(){
         if(contador == 60){
             time--;
@@ -81,6 +85,10 @@ public class Level extends World
         }
         contador++;
         showText("" + time, 600, 80);
+    }
+
+    public void setTime(int newTime){
+        time = newTime;
     }
 
     public int getPontos(){
@@ -95,6 +103,9 @@ public class Level extends World
         pontos += time;
     }
 
+    /**
+     * uma funcao que ira criar o efeito de perder ao piscar as suas texturas, e se ainda tiver mais que 0 vidas ira reininciar o nivel atual, senao ira saltar para o ecra de fim de jogo
+     */
     public void hyperDeath(Players player, boolean last){
         for(int i = 0; i < 3; i++){
             player.getImage().setTransparency(0);

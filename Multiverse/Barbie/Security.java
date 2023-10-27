@@ -32,14 +32,14 @@ public class Security extends Enemies
     public void act()
     {
         moveImage(enemy,enemy1,enemy2);
-        move(direction);
+        moving(direction);
         gravity();
         atGround();
     }
     
-    public void move(){
+    public void moving(int direction){
         if ((direction == 1 && isTouching(Cactus.class)) || (direction == -1 && isTouching(Plant.class)) || isAtEdge()) 
             direction = -direction;
-        move();
+        move(direction);
     }
 }

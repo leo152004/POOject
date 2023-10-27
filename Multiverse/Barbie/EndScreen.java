@@ -15,5 +15,7 @@ public class EndScreen extends World
         super(1200, 800, 1); 
         endGame = new GreenfootSound("barbie.mp3");
         endGame.play();
+        Level level = new Level();
+        showText("" + level.getPontos(), 600, 750);
     }
 }
